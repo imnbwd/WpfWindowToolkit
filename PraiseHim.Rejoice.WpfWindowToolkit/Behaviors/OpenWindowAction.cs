@@ -8,12 +8,12 @@ using System.Windows.Interactivity;
 
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
 {
-    /// <summary>    
+    /// <summary>
     /// Open a specified window, parameter can also be taken to pass to the new Window.
     /// </summary>
     /// <remarks>
     /// Known issue:
-    /// 1) When using this Action in MenuItem, it cannot invoke the CommandAfterClose command and MethodAfterClose    
+    /// 1) When using this Action in MenuItem, it cannot invoke the CommandAfterClose command and MethodAfterClose
     /// </remarks>
     public class OpenWindowAction : TriggerAction<DependencyObject>
     {
@@ -32,8 +32,11 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
         public static readonly DependencyProperty ParameterProperty =
                                     DependencyProperty.Register("Parameter", typeof(object), typeof(OpenWindowAction), new PropertyMetadata(null));
 
+        public static readonly DependencyProperty PreCheckFuncBeforeOpenProperty =
+            DependencyProperty.Register("PreCheckFuncBeforeOpen", typeof(Func<bool>), typeof(OpenWindowAction), new PropertyMetadata(null));
+
         public static readonly DependencyProperty WindowTypeProperty =
-                    DependencyProperty.Register("WindowType", typeof(Type), typeof(OpenWindowAction), new PropertyMetadata(null));
+                            DependencyProperty.Register("WindowType", typeof(Type), typeof(OpenWindowAction), new PropertyMetadata(null));
 
         /// <summary>
         /// Get or set the command to execute when the target window is closed
@@ -63,7 +66,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
         }
 
         /// <summary>
-        /// The object that possesses the method MethodAfterClose, commonly it is a ViewModel        
+        /// The object that possesses the method MethodAfterClose, commonly it is a ViewModel
         /// </summary>
         public object MethodOfTargetObject
         {
@@ -80,6 +83,12 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             set { SetValue(ParameterProperty, value); }
         }
 
+        public Func<bool> PreCheckFuncBeforeOpen
+        {
+            get { return (Func<bool>)GetValue(PreCheckFuncBeforeOpenProperty); }
+            set { SetValue(PreCheckFuncBeforeOpenProperty, value); }
+        }
+
         /// <summary>
         /// The type of the window to open
         /// </summary>
@@ -91,6 +100,11 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
 
         protected override void Invoke(object parameter)
         {
+            if (PreCheckFuncBeforeOpen != null && !PreCheckFuncBeforeOpen())
+            {
+                return;
+            }
+
             try
             {
                 var windowObj = Activator.CreateInstance(WindowType);
