@@ -2,19 +2,21 @@
 <package >
   <metadata>
     <id>WpfWindowToolkit</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>$title$</title>
     <authors>imnbwd</authors>
-    <owners>$author$</owners>
+    <owners>imnbwd</owners>
+    <licenseUrl>https://github.com/imnbwd/WpfWindowToolkit/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/imnbwd/WpfWindowToolkit</projectUrl>
 <!--
-    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
     <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
 -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A wpf windows toolkit for window opening, including some behaviors, useful class for viewmodel</description>
-    <releaseNotes>First release</releaseNotes>
-    <copyright>Copyright 2017</copyright>
+    <description>$description$</description>
+<!--
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+-->
+    <copyright>Copyright imnbwd 2017</copyright>
     <tags>wpf mvvm window toolkit xaml</tags>
   </metadata>
 </package>
