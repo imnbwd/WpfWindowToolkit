@@ -50,3 +50,4 @@ Then the view model of the window need to be opened need inherits `ViewModelBase
 
 For more info, you could see the demo project, here is a screenshot for the demo app:
 
+![Demo](https://github.com/imnbwd/WpfWindowToolkit/blob/master/Screenshot/Demo.png)
