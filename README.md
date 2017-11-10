@@ -1,9 +1,9 @@
-// # WpfWindowToolkit
+# WpfWindowToolkit
 A wpf windows toolkit for window opening, including some behaviors, useful class for viewmodel 
 
-#### How to use it
+### How to use it
 
-##### Open a window
+#### Open a window
 
 To open a window, you can use attached properties of `WindowHelper` like this:
 
@@ -26,7 +26,7 @@ or use `OpenWindowAction` like this:
     </Button>
 ```
 
-##### Open a window with parameter
+#### Open a window with parameter
 
 When opening a Window, you can pass a parameter to its viewmodel. Firstly set the parameter, like this:
 ```
