@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>WpfWindowToolkit</id>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <title>$title$</title>
     <authors>imnbwd</authors>
     <owners>imnbwd</owners>
@@ -12,7 +12,7 @@
     <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
 -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>A wpf windows toolkit for window opening, including some behaviors, useful class for viewmodel</description>
 <!--
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
 -->
