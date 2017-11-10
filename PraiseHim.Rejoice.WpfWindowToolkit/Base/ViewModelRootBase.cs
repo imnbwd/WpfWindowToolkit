@@ -5,7 +5,7 @@
         public abstract object Data { get; set; }
     }
 
-    internal abstract class ViewModelBaseData<T> : ViewModelRootBase
+    public abstract class ViewModelBaseData<T> : ViewModelRootBase
     {
         public override object Data
         {

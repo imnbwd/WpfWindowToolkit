@@ -47,10 +47,12 @@
   <ItemGroup>
     <Compile Include="Base\BindableBase.cs" />
     <Compile Include="Base\ViewModelRootBase.cs" />
-    <Compile Include="Base\ViewModelBaseSubEx.cs" />
-    <Compile Include="Base\OpenWindowInfo.cs" />
-    <Compile Include="Base\IOpenWindow.cs" />
+    <Compile Include="Behaviors\OpenTargetInTabControlAction.cs" />
+    <Compile Include="Behaviors\ScrollToTargetAction.cs" />
+    <Compile Include="Behaviors\CloseTabItemAction.cs" />
     <Compile Include="Behaviors\OpenWindowAction.cs" />
+    <Compile Include="Behaviors\ScrollingTrigger.cs" />
+    <Compile Include="Extensions\DependencyObjectExtensions.cs" />
     <Compile Include="Helpers\WindowHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

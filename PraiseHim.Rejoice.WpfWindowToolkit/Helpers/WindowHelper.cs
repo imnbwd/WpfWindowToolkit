@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PraiseHim.Rejoice.WpfWindowToolkit.Base;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -62,7 +63,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
 
         private static void OnOpenWindowTypeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            // make it available for Button, Hyperlink, MenutItem            
+            // make it available for Button, Hyperlink, MenutItem
             dynamic control = null;
             switch (d.GetType().Name)
             {
@@ -103,7 +104,14 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
 
                 if (GetParameter(d) != null)
                 {
-                    window.Tag = GetParameter(d);
+                    if (window.DataContext != null && window.DataContext is ViewModelRootBase)
+                    {
+                        (window.DataContext as ViewModelRootBase).Data = GetParameter(d);
+                    }
+                    //else
+                    //{
+                    //    window.Tag = GetParameter(d);
+                    //}
                 }
 
                 var isModel = GetIsModal(d);
@@ -116,7 +124,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
                         command.Execute(null);
                     }
 
-                    // set the object to null after it is closed                    
+                    // set the object to null after it is closed
                     window = null;
                 };
 
