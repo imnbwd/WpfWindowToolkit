@@ -1,13 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PraiseHim.Rejoice.WpfWindowToolkit", "PraiseHim.Rejoice.WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit.csproj", "{6A84295C-8934-4C99-A0A2-45785D510392}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{1AFB5FBC-3F29-4993-BD99-82F0446D25A3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfWindowToolkit.Test", "Sample\WpfWindowToolkit.Test\WpfWindowToolkit.Test.csproj", "{7ED3F71E-2A10-4683-865E-13B716B5DB54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{A9C450B3-7B99-4285-B502-A4F4E471F9EF}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshot\Demo.png = Screenshot\Demo.png
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
