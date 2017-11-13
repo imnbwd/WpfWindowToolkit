@@ -7,55 +7,110 @@ using System.Windows.Input;
 
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
 {
+    /// <summary>
+    /// WindowHelper, provides attached properties to open a window
+    /// </summary>
     public static class WindowHelper
     {
+        /// <summary>
+        /// CommandAfterClose attached property
+        /// </summary>
         public static readonly DependencyProperty CommandAfterCloseProperty =
             DependencyProperty.RegisterAttached("CommandAfterClose", typeof(ICommand), typeof(WindowHelper), new PropertyMetadata(null));
 
+        /// <summary>
+        /// IsModal attached property
+        /// </summary>
         public static readonly DependencyProperty IsModalProperty =
             DependencyProperty.RegisterAttached("IsModal", typeof(bool), typeof(WindowHelper), new PropertyMetadata(true));
 
+        /// <summary>
+        /// OpenWindowType attached property
+        /// </summary>
         public static readonly DependencyProperty OpenWindowTypeProperty =
                             DependencyProperty.RegisterAttached("OpenWindowType", typeof(Type), typeof(WindowHelper), new PropertyMetadata(null, OnOpenWindowTypeChanged));
 
+        /// <summary>
+        /// Parameter attached property
+        /// </summary>
         public static readonly DependencyProperty ParameterProperty =
             DependencyProperty.RegisterAttached("Parameter", typeof(object), typeof(WindowHelper), new PropertyMetadata(null));
 
+        /// <summary>
+        /// Get the <see cref="ICommand"/> to be executed after the window closed
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static ICommand GetCommandAfterClose(DependencyObject obj)
         {
             return (ICommand)obj.GetValue(CommandAfterCloseProperty);
         }
 
+        /// <summary>
+        /// Get the value that indicates whether the window is modal or not
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static bool GetIsModal(DependencyObject obj)
         {
             return (bool)obj.GetValue(IsModalProperty);
         }
 
+        /// <summary>
+        /// Get the type of the window to open
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static Type GetOpenWindowType(DependencyObject obj)
         {
             return (Type)obj.GetValue(OpenWindowTypeProperty);
         }
 
+        /// <summary>
+        /// Set the parameter to be passed to the ViewModel of the new window. Notice, that view model need inherits <see cref="Base.ViewModelBaseData{T}"/>        
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static object GetParameter(DependencyObject obj)
         {
             return (object)obj.GetValue(ParameterProperty);
         }
 
+        /// <summary>
+        /// Set the <see cref="ICommand"/> to be executed after the window closed
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="value"></param>
         public static void SetCommandAfterClose(DependencyObject obj, ICommand value)
         {
             obj.SetValue(CommandAfterCloseProperty, value);
         }
 
+        /// <summary>
+        /// Set the value that indicates whether the window is modal or not
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="value"></param>
         public static void SetIsModal(DependencyObject obj, bool value)
         {
             obj.SetValue(IsModalProperty, value);
         }
 
+        /// <summary>
+        /// Set the type of the window to open
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="value"></param>
         public static void SetOpenWindowType(DependencyObject obj, Type value)
         {
             obj.SetValue(OpenWindowTypeProperty, value);
         }
 
+        /// <summary>
+        /// Get the parameter to be passed to the ViewModel of the new window. Notice, that view model need inherits <see cref="Base.ViewModelBaseData{T}"/>        
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="value"></param>
         public static void SetParameter(DependencyObject obj, object value)
         {
             obj.SetValue(ParameterProperty, value);

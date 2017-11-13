@@ -5,6 +5,9 @@ using System.Windows.Media;
 
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Extensions
 {
+    /// <summary>
+    /// Extension methods for <see cref="DependencyObject"/>
+    /// </summary>
     public static class DependencyObjectExtensions
     {
         /// <summary>
@@ -77,6 +80,12 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Extensions
             }
         }
 
+        /// <summary>
+        /// Get the parent element matched the given type on the visual tree
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="element"></param>
+        /// <returns></returns>
         public static T GetParent<T>(this DependencyObject element) where T : DependencyObject
         {
             if (element == null) return null;
@@ -104,6 +113,13 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Extensions
             return parent as T;
         }
 
+        /// <summary>
+        /// Get the parent element matched the given type on the visual tree by the specific condition
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="element"></param>
+        /// <param name="p_func"></param>
+        /// <returns></returns>
         public static T GetParent<T>(this DependencyObject element, Func<T, bool> p_func) where T : DependencyObject
         {
             if (element == null) return null;

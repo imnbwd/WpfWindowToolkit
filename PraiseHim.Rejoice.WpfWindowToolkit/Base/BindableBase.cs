@@ -8,6 +8,9 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Base
     /// </summary>
     public class BindableBase : INotifyPropertyChanged
     {
+        /// <summary>
+        /// PropertyChanged
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>

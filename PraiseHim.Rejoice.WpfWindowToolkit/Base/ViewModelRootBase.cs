@@ -1,18 +1,34 @@
 ﻿namespace PraiseHim.Rejoice.WpfWindowToolkit.Base
 {
-    public abstract class ViewModelRootBase : BindableBase
-    {
-        public abstract object Data { get; set; }
-    }
-
+    /// <summary>
+    /// ViewModelBaseData
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract class ViewModelBaseData<T> : ViewModelRootBase
     {
+        /// <summary>
+        /// Get or set the data that passed to this view model
+        /// </summary>
         public override object Data
         {
             get { return this.InternalData; }
             set { this.InternalData = (T)value; }
         }
 
+        /// <summary>
+        /// Get or set the data with a specifc type
+        /// </summary>
         protected abstract T InternalData { get; set; }
+    }
+
+    /// <summary>
+    /// ViewModelRootBase, inherits from <see cref="BindableBase"/> which implements <see cref="System.ComponentModel.INotifyPropertyChanged"/>, can be the base class of view model
+    /// </summary>
+    public abstract class ViewModelRootBase : BindableBase
+    {
+        /// <summary>
+        /// Get or set the data that passed to this view model
+        /// </summary>
+        public abstract object Data { get; set; }
     }
 }

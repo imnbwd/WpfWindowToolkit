@@ -11,9 +11,15 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
     /// </summary>
     public class ScrollToTargetAction : TriggerAction<FrameworkElement>
     {
+        /// <summary>
+        /// ScrollViewerProperty
+        /// </summary>
         public static readonly DependencyProperty ScrollViewerProperty =
             DependencyProperty.Register("ScrollViewer", typeof(ScrollViewer), typeof(ScrollToTargetAction), new PropertyMetadata(null));
 
+        /// <summary>
+        /// TargetElementProperty
+        /// </summary>
         public static readonly DependencyProperty TargetElementProperty =
                     DependencyProperty.Register("TargetElement", typeof(FrameworkElement), typeof(ScrollToTargetAction), new PropertyMetadata(null));
 
@@ -35,6 +41,11 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             set { SetValue(TargetElementProperty, value); }
         }
 
+
+        /// <summary>
+        /// Overrides Invoke method
+        /// </summary>
+        /// <param name="parameter"></param>
         protected override void Invoke(object parameter)
         {
             if (TargetElement == null || ScrollViewer == null)

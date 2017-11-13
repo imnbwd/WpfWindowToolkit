@@ -17,24 +17,45 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
     /// </remarks>
     public class OpenWindowAction : TriggerAction<DependencyObject>
     {
+        /// <summary>
+        /// CommandAfterCloseProperty
+        /// </summary>
         public static readonly DependencyProperty CommandAfterCloseProperty =
             DependencyProperty.Register("CommandAfterClose", typeof(ICommand), typeof(OpenWindowAction), new PropertyMetadata(null));
 
+        /// <summary>
+        /// IsModalProperty
+        /// </summary>
         public static readonly DependencyProperty IsModalProperty =
                     DependencyProperty.Register("IsModal", typeof(bool), typeof(OpenWindowAction), new PropertyMetadata(true));
 
+        /// <summary>
+        /// MethodAfterCloseProperty
+        /// </summary>
         public static readonly DependencyProperty MethodAfterCloseProperty =
             DependencyProperty.Register("MethodAfterClose", typeof(string), typeof(OpenWindowAction), new PropertyMetadata(null));
 
+        /// <summary>
+        /// MethodOfTargetObjectProperty
+        /// </summary>
         public static readonly DependencyProperty MethodOfTargetObjectProperty =
             DependencyProperty.Register("MethodOfTargetObject", typeof(object), typeof(OpenWindowAction), new PropertyMetadata(null));
 
+        /// <summary>
+        /// ParameterProperty
+        /// </summary>
         public static readonly DependencyProperty ParameterProperty =
                                     DependencyProperty.Register("Parameter", typeof(object), typeof(OpenWindowAction), new PropertyMetadata(null));
 
+        /// <summary>
+        /// PreCheckFuncBeforeOpenProperty
+        /// </summary>
         public static readonly DependencyProperty PreCheckFuncBeforeOpenProperty =
             DependencyProperty.Register("PreCheckFuncBeforeOpen", typeof(Func<bool>), typeof(OpenWindowAction), new PropertyMetadata(null));
 
+        /// <summary>
+        /// WindowTypeProperty
+        /// </summary>
         public static readonly DependencyProperty WindowTypeProperty =
                             DependencyProperty.Register("WindowType", typeof(Type), typeof(OpenWindowAction), new PropertyMetadata(null));
 
@@ -83,6 +104,9 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             set { SetValue(ParameterProperty, value); }
         }
 
+        /// <summary>
+        /// Get or set a function that return a boolean value indicating whether the target window can be openned or not
+        /// </summary>
         public Func<bool> PreCheckFuncBeforeOpen
         {
             get { return (Func<bool>)GetValue(PreCheckFuncBeforeOpenProperty); }
@@ -98,6 +122,10 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             set { SetValue(WindowTypeProperty, value); }
         }
 
+        /// <summary>
+        /// Overrides Invoke method
+        /// </summary>
+        /// <param name="parameter"></param>
         protected override void Invoke(object parameter)
         {
             if (PreCheckFuncBeforeOpen != null && !PreCheckFuncBeforeOpen())

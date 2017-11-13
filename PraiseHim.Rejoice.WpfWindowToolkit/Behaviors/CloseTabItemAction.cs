@@ -13,33 +13,55 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
     /// </summary>
     public class CloseTabItemAction : TriggerAction<DependencyObject>
     {
+        /// <summary>
+        /// ClosingCheckFuncProperty
+        /// </summary>
         public static readonly DependencyProperty ClosingCheckFuncProperty =
             DependencyProperty.Register("ClosingCheckFunc", typeof(Func<bool>), typeof(CloseTabItemAction), new PropertyMetadata(null));
 
+        /// <summary>
+        /// TabControlProperty
+        /// </summary>
         public static readonly DependencyProperty TabControlProperty =
                     DependencyProperty.Register(nameof(TabControl), typeof(TabControl), typeof(CloseTabItemAction), new PropertyMetadata(default(TabControl)));
 
+        /// <summary>
+        /// TabItemProperty
+        /// </summary>
         public static readonly DependencyProperty TabItemProperty =
             DependencyProperty.Register(nameof(TabItem), typeof(TabItem), typeof(CloseTabItemAction), new PropertyMetadata(default(TabItem)));
 
+        /// <summary>
+        /// Get or set a function that returns a boolean value indicating whether the TabItem can be closed or not
+        /// </summary>
         public Func<bool> ClosingCheckFunc
         {
             get { return (Func<bool>)GetValue(ClosingCheckFuncProperty); }
             set { SetValue(ClosingCheckFuncProperty, value); }
         }
 
+        /// <summary>
+        /// Get or set the <see cref="TabControl"/> that possesses the target TabItem
+        /// </summary>
         public TabControl TabControl
         {
             get { return (TabControl)this.GetValue(TabControlProperty); }
             set { this.SetValue(TabControlProperty, value); }
         }
 
+        /// <summary>
+        /// Get or set the <see cref="TabItem"/> to be closed
+        /// </summary>
         public TabItem TabItem
         {
             get { return (TabItem)this.GetValue(TabItemProperty); }
             set { this.SetValue(TabItemProperty, value); }
         }
 
+        /// <summary>
+        /// Override Invoke method
+        /// </summary>
+        /// <param name="parameter"></param>
         protected override void Invoke(object parameter)
         {
             var tabControl = this.TabControl;

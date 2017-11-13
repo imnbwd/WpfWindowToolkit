@@ -11,18 +11,33 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
     /// </summary>
     public class OpenTargetInTabControlAction : TriggerAction<DependencyObject>
     {
+        /// <summary>
+        /// AllowMultiInstanceProperty
+        /// </summary>
         public static readonly DependencyProperty AllowMultiInstanceProperty =
             DependencyProperty.Register("AllowMultiInstance", typeof(bool), typeof(OpenTargetInTabControlAction), new PropertyMetadata(true));
 
+        /// <summary>
+        /// TabItemHeaderTemplateProperty
+        /// </summary>
         public static readonly DependencyProperty TabItemHeaderTemplateProperty =
             DependencyProperty.Register("TabItemHeaderTemplate", typeof(DataTemplate), typeof(OpenTargetInTabControlAction), new PropertyMetadata(null));
 
+        /// <summary>
+        /// TargetTabControlProperty
+        /// </summary>
         public static readonly DependencyProperty TargetTabControlProperty =
                             DependencyProperty.Register("TargetTabControl", typeof(TabControl), typeof(OpenTargetInTabControlAction), new PropertyMetadata(null));
 
+        /// <summary>
+        /// TargetTitleProperty
+        /// </summary>
         public static readonly DependencyProperty TargetTitleProperty =
             DependencyProperty.Register("TargetTitle", typeof(string), typeof(OpenTargetInTabControlAction), new PropertyMetadata(string.Empty));
 
+        /// <summary>
+        /// TargetTypeProperty
+        /// </summary>
         public static readonly DependencyProperty TargetTypeProperty =
                     DependencyProperty.Register("TargetType", typeof(Type), typeof(OpenTargetInTabControlAction), new PropertyMetadata(null));
 
@@ -71,6 +86,10 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             set { SetValue(TargetTypeProperty, value); }
         }
 
+        /// <summary>
+        /// Overrides Invoke method
+        /// </summary>
+        /// <param name="parameter"></param>
         protected override void Invoke(object parameter)
         {
             if (TargetTabControl == null || TargetType == null)

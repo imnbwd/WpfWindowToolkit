@@ -9,6 +9,9 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
     /// </summary>
     public class ScrollingTrigger : TriggerBase<ScrollViewer>
     {
+        /// <summary>
+        /// TargetElementProperty
+        /// </summary>
         public static readonly DependencyProperty TargetElementProperty =
             DependencyProperty.Register("TargetElement", typeof(FrameworkElement), typeof(ScrollingTrigger), new PropertyMetadata(null));
 
@@ -21,6 +24,9 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             set { SetValue(TargetElementProperty, value); }
         }
 
+        /// <summary>
+        /// OnAttached
+        /// </summary>
         protected override void OnAttached()
         {
             base.OnAttached();
@@ -28,6 +34,9 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             AssociatedObject.ScrollChanged += AssociatedObject_ScrollChanged;
         }
 
+        /// <summary>
+        /// OnDetaching
+        /// </summary>
         protected override void OnDetaching()
         {
             AssociatedObject.ScrollChanged -= AssociatedObject_ScrollChanged;
