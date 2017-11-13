@@ -32,7 +32,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             DependencyProperty.Register(nameof(TabItem), typeof(TabItem), typeof(CloseTabItemAction), new PropertyMetadata(default(TabItem)));
 
         /// <summary>
-        /// Get or set a function that returns a boolean value indicating whether the TabItem can be closed or not
+        /// Get or set a function that returns a boolean value indicating whether the <see cref="TabItem"/> can be closed or not
         /// </summary>
         public Func<bool> ClosingCheckFunc
         {

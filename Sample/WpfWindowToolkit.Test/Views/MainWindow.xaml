@@ -99,16 +99,27 @@
                     </Button>
                 </StackPanel>
             </GroupBox>
-            <GroupBox Margin="0,5,0,0" Header="Scrolling">
+            <GroupBox Margin="0,5,0,0" Header="CloseWindowAction">
                 <StackPanel Margin="5">
-                    <Button helpers:WindowHelper.OpenWindowType="{x:Type local:ScrollingTestWindow}" Content="Scrolling test" />
-                    <Button Margin="0,5,0,0" Content="ok">
+                    <Button Content="Close the current window">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
-                                <behaviors:CloseWindowAction ClosingCheckFunc="{Binding Abc}" />
+                                <behaviors:CloseWindowAction />
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Button>
+                    <Button Margin="0,5,0,0" Content="Close the current window with confirmation">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <behaviors:CloseWindowAction ClosingCheckFunc="{Binding CheckBeforeCloseWindow}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Margin="0,5,0,0" Header="Scrolling">
+                <StackPanel Margin="5">
+                    <Button helpers:WindowHelper.OpenWindowType="{x:Type local:ScrollingTestWindow}" Content="Scrolling test" />
                 </StackPanel>
             </GroupBox>
         </StackPanel>

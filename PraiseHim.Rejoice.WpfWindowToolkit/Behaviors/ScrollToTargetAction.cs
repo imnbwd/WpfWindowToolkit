@@ -41,7 +41,6 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             set { SetValue(TargetElementProperty, value); }
         }
 
-
         /// <summary>
         /// Overrides Invoke method
         /// </summary>

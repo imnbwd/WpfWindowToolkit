@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Base\BindableBase.cs" />
     <Compile Include="Base\ViewModelRootBase.cs" />
+    <Compile Include="Behaviors\CloseWindowAction.cs" />
+    <Compile Include="Behaviors\InvokeCommandAction.cs" />
     <Compile Include="Behaviors\OpenTargetInTabControlAction.cs" />
     <Compile Include="Behaviors\ScrollToTargetAction.cs" />
     <Compile Include="Behaviors\CloseTabItemAction.cs" />

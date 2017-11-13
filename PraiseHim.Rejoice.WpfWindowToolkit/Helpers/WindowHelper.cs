@@ -67,7 +67,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
         }
 
         /// <summary>
-        /// Set the parameter to be passed to the ViewModel of the new window. Notice, that view model need inherits <see cref="Base.ViewModelBaseData{T}"/>        
+        /// Set the parameter to be passed to the ViewModel of the new window. Notice, that view model need inherits <see cref="Base.ViewModelBaseData{T}"/>
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -107,7 +107,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
         }
 
         /// <summary>
-        /// Get the parameter to be passed to the ViewModel of the new window. Notice, that view model need inherits <see cref="Base.ViewModelBaseData{T}"/>        
+        /// Get the parameter to be passed to the ViewModel of the new window. Notice, that view model need inherits <see cref="Base.ViewModelBaseData{T}"/>
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="value"></param>
