@@ -15,6 +15,9 @@
     DataContext="{Binding MainViewModel, Source={StaticResource Locator}}"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+    <i:Interaction.Behaviors>
+        <behaviors:CloseWindowBehavior ClosingCheckFunc="{Binding CheckBeforeCloseWindow}" />
+    </i:Interaction.Behaviors>
     <Grid>
         <StackPanel Margin="10">
             <GroupBox Header="WindowHelper">

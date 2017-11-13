@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PraiseHim.Rejoice.WpfWindowToolkit</RootNamespace>
     <AssemblyName>WpfWindowToolkit</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\WpfWindowToolkit.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,6 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\WpfWindowToolkit.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
@@ -49,6 +52,7 @@
     <Compile Include="Base\BindableBase.cs" />
     <Compile Include="Base\ViewModelRootBase.cs" />
     <Compile Include="Behaviors\CloseWindowAction.cs" />
+    <Compile Include="Behaviors\CloseWindowBehavior.cs" />
     <Compile Include="Behaviors\InvokeCommandAction.cs" />
     <Compile Include="Behaviors\OpenTargetInTabControlAction.cs" />
     <Compile Include="Behaviors\ScrollToTargetAction.cs" />
@@ -59,5 +63,6 @@
     <Compile Include="Helpers\WindowHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
