@@ -39,18 +39,102 @@ namespace WpfWindowToolkit.Test.ViewModels
 
         public void Execute(object parameter)
         {
-            if (_action != null)
+            _action?.Invoke();
+        }
+
+        public void RaiseCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, new EventArgs());
+        }
+    }
+
+    public class RelayCommand<T> : ICommand
+    {
+        private readonly Func<T, bool> _canExecute;
+        private readonly Action<T> _execute;
+
+        public RelayCommand(Action<T> execute)
+            : this(execute, null)
+        {
+        }
+
+        public RelayCommand(Action<T> execute, Func<T, bool> canExecute)
+        {
+            if (execute == null)
             {
-                _action();
+                throw new ArgumentNullException("execute");
+            }
+
+            _execute = new Action<T>(execute);
+
+            if (canExecute != null)
+            {
+                _canExecute = new Func<T, bool>(canExecute);
+            }
+        }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add
+            {
+                if (_canExecute != null)
+                {
+                    CommandManager.RequerySuggested += value;
+                }
+            }
+
+            remove
+            {
+                if (_canExecute != null)
+                {
+                    CommandManager.RequerySuggested -= value;
+                }
+            }
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            if (_canExecute == null)
+            {
+                return true;
+            }
+
+            if (parameter == null || parameter is T)
+            {
+                return _canExecute((T)parameter);
+            }
+            else
+            {
+                return _canExecute(default(T));
+            }
+        }
+
+        public virtual void Execute(object parameter)
+        {
+            var val = parameter;
+
+            if (parameter != null && parameter is T)
+            {
+                _execute((T)parameter);
+            }
+            else
+            {
+                _execute(default(T));
+            }
+
+            if (parameter != null
+                && parameter.GetType() != typeof(T))
+            {
+                if (parameter is IConvertible)
+                {
+                    val = Convert.ChangeType(parameter, typeof(T), null);
+                }
             }
         }
 
         public void RaiseCanExecuteChanged()
         {
-            if (CanExecuteChanged != null)
-            {
-                CanExecuteChanged(this, new EventArgs());
-            }
+            CommandManager.InvalidateRequerySuggested();
         }
     }
 }
