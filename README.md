@@ -48,6 +48,26 @@ Then the view model of the window need to be opened need inherits `ViewModelBase
 
 ```
 
+#### To close a window and handle window closing event
+
+By using `CloseWindowAction`, you can add the functionality to close the current Window for an element, like this:
+```
+    <Button Content="Close the current window with confirmation">
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="Click">
+                <behaviors:CloseWindowAction ClosingCheckFunc="{Binding CheckBeforeCloseWindow}" />
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+    </Button>
+```
+
+To handle window closing event, you can use `CloseWindowBehavior`, attach it to a Window like this:
+```
+    <i:Interaction.Behaviors>
+        <behaviors:CloseWindowBehavior ClosingCheckFunc="{Binding CheckBeforeCloseWindow}" />
+    </i:Interaction.Behaviors>
+```
+
 
 For more info, you could see the demo project, here is a screenshot for the demo app:
 
