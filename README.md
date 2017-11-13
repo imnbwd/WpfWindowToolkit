@@ -1,5 +1,5 @@
 # WpfWindowToolkit
-A wpf windows toolkit for window opening, including some behaviors, useful class for viewmodel, available on [nuget](https://www.nuget.org/packages/WpfWindowToolkit/)
+A wpf windows toolkit for window opening, including some behaviors, useful class for view model. Available on [nuget](https://www.nuget.org/packages/WpfWindowToolkit/)
 
 
 ### How to use it
