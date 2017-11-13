@@ -2,9 +2,9 @@
 A wpf windows toolkit for window opening, including some behaviors, useful class for view model. Available on [nuget](https://www.nuget.org/packages/WpfWindowToolkit/)
 
 
-### How to use it
+## How to use it
 
-#### Open a window
+### Open a window
 
 To open a window, you can use attached properties of `WindowHelper` like this:
 
@@ -27,7 +27,7 @@ or use `OpenWindowAction` like this:
     </Button>
 ```
 
-#### Open a window with parameter
+### Open a window with parameter
 
 When opening a Window, you can pass a parameter to its viewmodel. Firstly set the parameter, like this:
 ```
@@ -48,7 +48,7 @@ Then the view model of the window need to be opened need inherits `ViewModelBase
 
 ```
 
-#### To close a window and handle window closing event
+### To close a window and handle window closing event
 
 By using `CloseWindowAction`, you can add the functionality to close the current Window for an element, like this:
 ```
