@@ -49,7 +49,7 @@ Then the view model of the window need to be opened need inherits `ViewModelBase
 
 ```
 
-### To close a window
+### Close a window
 
 By using `CloseWindowAction`, you can add the functionality to close the current Window for an element, like this:
 ```XAML
@@ -61,7 +61,7 @@ By using `CloseWindowAction`, you can add the functionality to close the current
         </i:Interaction.Triggers>
     </Button>
 ```
-### To handle window closing event
+### Handle window closing event
 
 To handle window closing event, you can use `CloseWindowBehavior`, attach it to a Window like this:
 ```XAML
