@@ -69,7 +69,7 @@ To handle window closing event, you can use `CloseWindowBehavior`, attach it to 
         <behaviors:CloseWindowBehavior ClosingCheckFunc="{Binding CheckBeforeCloseWindow}" />
     </i:Interaction.Behaviors>
 ```
-By binding `ClosingCheckFunc` property to a function which is typeof `Func<bool>` to indicate whether the window can be closed or not.
+By binding `ClosingCheckFunc` property to a function which type is `Func<bool>` to indicate whether the window can be closed or not.
 
 ## More info
 
