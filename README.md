@@ -3,7 +3,7 @@ A wpf windows toolkit for window opening, including some behaviors, useful class
 
 
 
-## How to use it
+## How to
 
 ### Open a window
 
@@ -73,6 +73,6 @@ By binding `ClosingCheckFunc` property to a function which is typeof `Func<bool>
 
 ## More info
 
-For more info, you could see the demo project, here is a screenshot for the demo app:
+For more info, you could dive into the demo project, here is a screenshot for the demo app:
 
 ![Demo](https://github.com/imnbwd/WpfWindowToolkit/blob/master/Screenshot/Demo.png)
