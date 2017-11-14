@@ -16,7 +16,7 @@ To open a window, you can use attached properties of `WindowHelper` like this:
 ```
 
 or use `OpenWindowAction` like this:
-```
+```XAML
     <Button x:Name="btn5"
         Margin="0,5,0,0"
         Content="Open window with parameter using action">
@@ -40,7 +40,7 @@ or
 ```
 
 Then the view model of the window need to be opened need inherits `ViewModelBaseData<T>`, here the type parameter `T` should be type of the parameter you want to passed to, for example:
-```
+```C#
     public class Window1ViewModel : ViewModelBaseData<string>
     {   
         protected override string InternalData { get; set; }
