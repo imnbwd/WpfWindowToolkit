@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PraiseHim.Rejoice.WpfWindowToolkit", "PraiseHim.Rejoice.WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit.csproj", "{6A84295C-8934-4C99-A0A2-45785D510392}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{1AFB5FBC-3F29-4993-BD99-82F0446D25A3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfWindowToolkit.Test", "Sample\WpfWindowToolkit.Test\WpfWindowToolkit.Test.csproj", "{7ED3F71E-2A10-4683-865E-13B716B5DB54}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WpfWindowToolkit.Samples", "WpfWindowToolkit.Samples", "{1AFB5FBC-3F29-4993-BD99-82F0446D25A3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{A9C450B3-7B99-4285-B502-A4F4E471F9EF}"
 	ProjectSection(SolutionItems) = preProject
@@ -15,26 +11,61 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{A9C450B3
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WpfWindowToolkit", "WpfWindowToolkit", "{0123FB51-6466-46C8-BEE0-50CD6A68B95D}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PraiseHim.Rejoice.WpfWindowToolkit.Shared", "WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit.Shared\PraiseHim.Rejoice.WpfWindowToolkit.Shared.shproj", "{E2939080-6574-4CAA-9E94-2DB103B880CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PraiseHim.Rejoice.WpfWindowToolkit.NET40", "WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit.NET40.csproj", "{051D83FC-F0EA-494D-8239-46B677F934FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PraiseHim.Rejoice.WpfWindowToolkit.NET45", "WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit.NET45.csproj", "{6A84295C-8934-4C99-A0A2-45785D510392}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfWindowToolkit.Demo.NET40", "WpfWindowToolkit.Samples\WpfWindowToolkit.Demo.NET40\WpfWindowToolkit.Demo.NET40.csproj", "{560437C1-C766-44D3-858F-A5F849C5EDC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfWindowToolkit.Demo.NET45", "WpfWindowToolkit.Samples\WpfWindowToolkit.Demo.NET45\WpfWindowToolkit.Demo.NET45.csproj", "{B55F776C-DAB9-4A3F-9D1D-E6EAA9D448A0}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "WpfWindowToolkit.Demo.Shared", "WpfWindowToolkit.Samples\WpfWindowToolkit.Demo.Shared\WpfWindowToolkit.Demo.Shared.shproj", "{076483A6-78A9-4175-9E7C-A31A1C0AEF2E}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit.Shared\PraiseHim.Rejoice.WpfWindowToolkit.Shared.projitems*{051d83fc-f0ea-494d-8239-46b677f934fc}*SharedItemsImports = 4
+		WpfWindowToolkit.Samples\WpfWindowToolkit.Demo.Shared\WpfWindowToolkit.Demo.Shared.projitems*{076483a6-78a9-4175-9e7c-a31a1c0aef2e}*SharedItemsImports = 13
+		WpfWindowToolkit.Samples\WpfWindowToolkit.Demo.Shared\WpfWindowToolkit.Demo.Shared.projitems*{560437c1-c766-44d3-858f-a5f849c5edc1}*SharedItemsImports = 4
+		WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit.Shared\PraiseHim.Rejoice.WpfWindowToolkit.Shared.projitems*{6a84295c-8934-4c99-a0a2-45785d510392}*SharedItemsImports = 4
+		WpfWindowToolkit.Samples\WpfWindowToolkit.Demo.Shared\WpfWindowToolkit.Demo.Shared.projitems*{b55f776c-dab9-4a3f-9d1d-e6eaa9d448a0}*SharedItemsImports = 4
+		WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit.Shared\PraiseHim.Rejoice.WpfWindowToolkit.Shared.projitems*{e2939080-6574-4caa-9e94-2db103b880cb}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{051D83FC-F0EA-494D-8239-46B677F934FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{051D83FC-F0EA-494D-8239-46B677F934FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{051D83FC-F0EA-494D-8239-46B677F934FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{051D83FC-F0EA-494D-8239-46B677F934FC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6A84295C-8934-4C99-A0A2-45785D510392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6A84295C-8934-4C99-A0A2-45785D510392}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A84295C-8934-4C99-A0A2-45785D510392}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A84295C-8934-4C99-A0A2-45785D510392}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7ED3F71E-2A10-4683-865E-13B716B5DB54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7ED3F71E-2A10-4683-865E-13B716B5DB54}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7ED3F71E-2A10-4683-865E-13B716B5DB54}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7ED3F71E-2A10-4683-865E-13B716B5DB54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{560437C1-C766-44D3-858F-A5F849C5EDC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{560437C1-C766-44D3-858F-A5F849C5EDC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{560437C1-C766-44D3-858F-A5F849C5EDC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{560437C1-C766-44D3-858F-A5F849C5EDC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B55F776C-DAB9-4A3F-9D1D-E6EAA9D448A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B55F776C-DAB9-4A3F-9D1D-E6EAA9D448A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B55F776C-DAB9-4A3F-9D1D-E6EAA9D448A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B55F776C-DAB9-4A3F-9D1D-E6EAA9D448A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{7ED3F71E-2A10-4683-865E-13B716B5DB54} = {1AFB5FBC-3F29-4993-BD99-82F0446D25A3}
+		{E2939080-6574-4CAA-9E94-2DB103B880CB} = {0123FB51-6466-46C8-BEE0-50CD6A68B95D}
+		{051D83FC-F0EA-494D-8239-46B677F934FC} = {0123FB51-6466-46C8-BEE0-50CD6A68B95D}
+		{6A84295C-8934-4C99-A0A2-45785D510392} = {0123FB51-6466-46C8-BEE0-50CD6A68B95D}
+		{560437C1-C766-44D3-858F-A5F849C5EDC1} = {1AFB5FBC-3F29-4993-BD99-82F0446D25A3}
+		{B55F776C-DAB9-4A3F-9D1D-E6EAA9D448A0} = {1AFB5FBC-3F29-4993-BD99-82F0446D25A3}
+		{076483A6-78A9-4175-9E7C-A31A1C0AEF2E} = {1AFB5FBC-3F29-4993-BD99-82F0446D25A3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D9D0B295-0E15-43A9-8BA4-097420BD27CB}
