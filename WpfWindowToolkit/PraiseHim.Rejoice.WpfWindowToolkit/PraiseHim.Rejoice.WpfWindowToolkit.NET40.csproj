@@ -60,4 +60,8 @@
   </ItemGroup>
   <Import Project="..\PraiseHim.Rejoice.WpfWindowToolkit.Shared\PraiseHim.Rejoice.WpfWindowToolkit.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(TargetPath) ..\..\..\lib\NET40\ /y
+xcopy $(TargetDir)$(TargetName).xml ..\..\..\lib\NET40\ /y</PostBuildEvent>
+  </PropertyGroup>
 </Project>
