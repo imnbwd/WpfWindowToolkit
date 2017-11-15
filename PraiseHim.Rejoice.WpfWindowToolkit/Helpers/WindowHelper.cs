@@ -193,6 +193,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
                 }
             });
 
+            control.Click -= clickEventHandler;
             control.Click += clickEventHandler;
         }
     }

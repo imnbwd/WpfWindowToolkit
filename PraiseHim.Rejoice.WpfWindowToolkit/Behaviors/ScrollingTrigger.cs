@@ -30,7 +30,12 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
         protected override void OnAttached()
         {
             base.OnAttached();
-            AssociatedObject.ScrollChanged -= AssociatedObject_ScrollChanged;
+
+            if (AssociatedObject != null)
+            {
+                AssociatedObject.ScrollChanged -= AssociatedObject_ScrollChanged;
+            }
+
             AssociatedObject.ScrollChanged += AssociatedObject_ScrollChanged;
         }
 
@@ -39,7 +44,11 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
         /// </summary>
         protected override void OnDetaching()
         {
-            AssociatedObject.ScrollChanged -= AssociatedObject_ScrollChanged;
+            if (AssociatedObject != null)
+            {
+                AssociatedObject.ScrollChanged -= AssociatedObject_ScrollChanged;
+            }
+
             base.OnDetaching();
         }
 

@@ -34,8 +34,9 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             if (AssociatedObject != null)
             {
                 AssociatedObject.Closing -= AssociatedObject_Closing;
-                AssociatedObject.Closing += AssociatedObject_Closing;
             }
+
+            AssociatedObject.Closing += AssociatedObject_Closing;
         }
 
         /// <summary>

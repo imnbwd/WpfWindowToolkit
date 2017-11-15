@@ -139,7 +139,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
 
                 var window = windowObj as Window;
 
-                window.Closed += (s, e) =>
+                var closeEventHanlder = new EventHandler((s, e) =>
                 {
                     // first execute CommandAfterClose command, then invoke MethodAfterClose method (if they are set)
                     CommandAfterClose?.Execute(null);
@@ -164,7 +164,9 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
                             method?.Invoke(MethodOfTargetObject, null);
                         }
                     }
-                };
+                });
+
+                window.Closed += closeEventHanlder;
 
                 if (window.DataContext != null && window.DataContext is ViewModelRootBase)
                 {
