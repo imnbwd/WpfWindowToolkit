@@ -44,7 +44,7 @@ or
     <behaviors:OpenWindowAction Parameter="WPF (action)" WindowType="{x:Type local:Window1}" />
 ```
 
-Then the view model of the window need to be opened need inherits `ViewModelBaseData<T>`, here the type parameter `T` should be type of the parameter you want to passed to, for example:
+Then the view model of the window need to be opened should inherit `ViewModelBaseData<T>`, here the type parameter `T` should be type of the parameter you want to passed to, for example:
 ```C#
     public class Window1ViewModel : ViewModelBaseData<string>
     {   
