@@ -3,7 +3,7 @@
     /// <summary>
     /// ViewModelBaseData
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">The parameter data type</typeparam>
     public abstract class ViewModelBaseData<T> : ViewModelRootBase
     {
         /// <summary>
