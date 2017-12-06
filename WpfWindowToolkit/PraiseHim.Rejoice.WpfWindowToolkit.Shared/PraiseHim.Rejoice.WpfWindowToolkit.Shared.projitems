@@ -9,6 +9,7 @@
     <Import_RootNamespace>PraiseHim.Rejoice.WpfWindowToolkit</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AssemblyInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\BindableBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\ViewModelRootBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviors\CloseTabItemAction.cs" />

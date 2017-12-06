@@ -54,9 +54,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="..\PraiseHim.Rejoice.WpfWindowToolkit.Shared\PraiseHim.Rejoice.WpfWindowToolkit.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
