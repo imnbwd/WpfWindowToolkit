@@ -1,7 +1,12 @@
 # WpfWindowToolkit
-A wpf windows toolkit for window opening, including some behaviors, useful class for view model. Available on [NuGet](https://www.nuget.org/packages/WpfWindowToolkit/)
+A wpf windows toolkit for window operations, including some behaviors, useful class for view model. Available on [NuGet](https://www.nuget.org/packages/WpfWindowToolkit/)
 
+## Features
 
+* Handle Window opening, closing using behaviors
+* Pass parameters between windows 
+* Fully MVVM supported
+* Other utility behaviors
 
 ## How to
 
@@ -39,7 +44,7 @@ or
     <behaviors:OpenWindowAction Parameter="WPF (action)" WindowType="{x:Type local:Window1}" />
 ```
 
-Then the view model of the window need to be opened need inherits `ViewModelBaseData<T>`, here the type parameter `T` should be type of the parameter you want to passed to, for example:
+Then the view model of the window need to be opened should inherit `ViewModelBaseData<T>`, here the type parameter `T` should be type of the parameter you want to passed to, for example:
 ```C#
     public class Window1ViewModel : ViewModelBaseData<string>
     {   
