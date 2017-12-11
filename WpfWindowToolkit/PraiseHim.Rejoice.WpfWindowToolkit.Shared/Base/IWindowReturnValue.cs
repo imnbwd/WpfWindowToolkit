@@ -1,7 +1,7 @@
 ﻿namespace PraiseHim.Rejoice.WpfWindowToolkit.Base
 {
     /// <summary>
-    /// Supports returning a value.
+    /// Supports returning a value after a window closed.
     /// </summary>
     public interface IWindowReturnValue
     {

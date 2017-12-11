@@ -132,14 +132,21 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             {
                 return;
             }
+            
+            Window window = null;
+            object windowObj = null;
 
             try
             {
-                var windowObj = Activator.CreateInstance(WindowType);
+                windowObj = Activator.CreateInstance(WindowType);
+                window = windowObj as Window;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Cannot create a window with the given type", ex);
+            }
 
-                var window = windowObj as Window;
-
-                var closeEventHanlder = new EventHandler((s, e) =>
+            var closeEventHanlder = new EventHandler((s, e) =>
                 {
                     // first execute CommandAfterClose command, then invoke MethodAfterClose method (if they are set)
                     CommandAfterClose?.Execute(null);
@@ -173,10 +180,10 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
                     // set the data to viewmodel
                     (window.DataContext as ViewModelRootBase).Data = Parameter;
                 }
-                else
-                {
-                    window.Tag = Parameter;
-                }
+                //else
+                //{
+                //    window.Tag = Parameter;
+                //}
 
                 if (IsModal)
                 {
@@ -186,11 +193,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
                 {
                     window.Show();
                 }
-            }
-            catch (Exception ex)
-            {
-                Trace.WriteLine(ex);
-            }
+           
         }
     }
 }

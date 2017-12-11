@@ -1,0 +1,118 @@
+﻿using System;
+using System.Windows;
+
+namespace PraiseHim.Rejoice.WpfWindowToolkit.Base
+{
+    /// <summary>
+    /// Provides the way to open a window
+    /// </summary>
+    public class ViewModelBaseDataEx : BindableBase, IOpenWindow
+    {
+        /// <summary>
+        /// Open a window with the specific window info.
+        /// </summary>
+        /// <param name="openWindowInfo">The info of the window to be opened</param>
+        public virtual void ShowWindow(OpenWindowInfo openWindowInfo)
+        {
+            if (openWindowInfo == null || openWindowInfo.WindowType == null)
+            {
+                throw new ArgumentNullException(nameof(openWindowInfo), "WindowType cannot be null");
+            }
+
+            Window window = null;
+            object windowObj = null;
+
+            try
+            {
+                windowObj = Activator.CreateInstance(openWindowInfo.WindowType);
+                window = windowObj as Window;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Cannot create a window with the given type", ex);
+            }
+
+            if (openWindowInfo.Parameter != null && window.DataContext != null
+                    && window.DataContext is ViewModelRootBase)
+            {
+                (window.DataContext as ViewModelRootBase).Data = openWindowInfo.Parameter;
+            }
+
+            if (openWindowInfo.IsModal)
+            {
+                window.ShowDialog();
+            }
+            else
+            {
+                window.Show();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Provides the way to open a window and return a value
+    /// </summary>
+    /// <typeparam name="TReturnValue">The data type of the value to be returned</typeparam>
+    public class ViewModelBaseDataEx<TReturnValue> : ViewModelBaseDataEx, IOpenWindow2<TReturnValue>
+    {
+        /// <summary>
+        /// Open a window with the specific window info, and handle the return value when the target window closed.
+        /// </summary>
+        /// <param name="openWindowInfo">The info of the window to be opened</param>
+        /// <param name="action">The <see cref="Action"/> to handle the return value</param>
+        public virtual void ShowWindow(OpenWindowInfo openWindowInfo, Action<TReturnValue> action)
+        {
+            if (openWindowInfo == null || openWindowInfo.WindowType == null)
+            {
+                throw new ArgumentNullException(nameof(openWindowInfo), "WindowType cannot be null");
+            }
+
+            Window window = null;
+            object windowObj = null;
+
+            try
+            {
+                windowObj = Activator.CreateInstance(openWindowInfo.WindowType);
+                window = windowObj as Window;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Cannot create a window with the given type", ex);
+            }
+
+            if (openWindowInfo.Parameter != null && window.DataContext != null
+                && window.DataContext is ViewModelRootBase)
+            {
+                (window.DataContext as ViewModelRootBase).Data = openWindowInfo.Parameter;
+            }
+
+            EventHandler closeEventHanlder = (s, e) =>
+            {
+                if (window.DataContext is IWindowReturnValue)
+                {
+                    var value = (window.DataContext as IWindowReturnValue).Value;
+                    if (value != null)
+                    {
+                        action?.Invoke((TReturnValue)value);
+                    }
+                    else
+                    {
+                        action?.Invoke(default(TReturnValue));
+                    }
+                }
+            };
+
+            window.Closed -= closeEventHanlder;
+            window.Closed += closeEventHanlder;
+
+            if (openWindowInfo.IsModal)
+            {
+                window.ShowDialog();
+            }
+            else
+            {
+                window.Show();
+            }
+        }
+    }
+}
