@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AssemblyInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\BindableBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\IOpenWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Base\IView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\IWindowReturnValue.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\OpenWindowInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\ViewModelRootBase.cs" />

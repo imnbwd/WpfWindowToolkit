@@ -6,7 +6,8 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
 {
     /// <summary>
     /// A behavior for <see cref="Window"/> that can handle the closing event
-    /// </summary>
+    /// </summary>    
+    [TypeConstraint(typeof(Window))]
     public class CloseWindowBehavior : Behavior<Window>
     {
         /// <summary>

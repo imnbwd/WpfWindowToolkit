@@ -70,8 +70,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             {
                 return;
             }
-
-            // TODO Raise a closing event to cancel this action
+                        
             if (ClosingCheckFunc != null && !ClosingCheckFunc())
             {
                 return;
