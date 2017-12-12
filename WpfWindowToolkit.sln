@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{A9C450B3
 	ProjectSection(SolutionItems) = preProject
 		CHANGELOG.md = CHANGELOG.md
 		Screenshot\Demo.png = Screenshot\Demo.png
+		Screenshot\Demo1.2.png = Screenshot\Demo1.2.png
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection

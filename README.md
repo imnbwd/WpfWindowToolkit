@@ -88,4 +88,4 @@ By binding `ClosingCheckFunc` property to a function which type is `Func<bool>` 
 
 For more info, you could dive into the demo project, here is a screenshot for the demo app:
 
-![Demo](https://github.com/imnbwd/WpfWindowToolkit/blob/master/Screenshot/Demo.png)
+![Demo](https://github.com/imnbwd/WpfWindowToolkit/blob/master/Screenshot/Demo1.2.png)
