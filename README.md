@@ -7,6 +7,10 @@ A wpf windows toolkit for window operations, including some behaviors, useful cl
 * Pass parameters between windows 
 * Fully MVVM supported
 * Other utility behaviors
+## Installation
+```PowerShell
+Install-Package WpfWindowToolkit
+```
 
 ## How to
 
