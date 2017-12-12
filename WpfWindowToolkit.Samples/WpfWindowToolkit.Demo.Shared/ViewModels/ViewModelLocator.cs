@@ -2,14 +2,14 @@
 {
     public class ViewModelLocator
     {
-        public MainViewModel MainViewModel { get => new MainViewModel(); }
+        public MainViewModel MainViewModel { get { return new MainViewModel(); } }
 
-        public ReturnValueTestWindowViewModel ReturnValueTestWindowViewModel { get => new ReturnValueTestWindowViewModel(); }
+        public ReturnValueTestWindowViewModel ReturnValueTestWindowViewModel { get { return new ReturnValueTestWindowViewModel(); } }
 
-        public ReturnValueMainWindowViewModel ReturnValueMainWindowViewModel { get => new ReturnValueMainWindowViewModel(); }
+        public ReturnValueMainWindowViewModel ReturnValueMainWindowViewModel { get { return new ReturnValueMainWindowViewModel(); } }
 
-        public Window1ViewModel Window1ViewModel { get => new Window1ViewModel(); }
+        public Window1ViewModel Window1ViewModel { get { return new Window1ViewModel(); } }
 
-        public Window2ViewModel Window2ViewModel { get => new Window2ViewModel(); }
+        public Window2ViewModel Window2ViewModel { get { return new Window2ViewModel(); } }
     }
 }
