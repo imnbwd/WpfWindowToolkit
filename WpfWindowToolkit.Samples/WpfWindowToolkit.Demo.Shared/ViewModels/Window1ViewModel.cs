@@ -13,7 +13,7 @@ namespace WpfWindowToolkit.Demo.ViewModels
         {
             get { return _parameter; }
 #if NET45
-            set { _parameter = value; }
+            set { Set(ref _parameter, value); }
 #elif NET40
             set { _parameter = value; this.OnPropertyChanged("Parameter"); }
 #endif

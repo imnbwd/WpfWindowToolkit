@@ -15,6 +15,7 @@
     /// <summary>
     /// Supports returning a value after a window closed.
     /// </summary>
+    /// <typeparam name="T">The data type of return value</typeparam>
     public interface IWindowReturnValue<T>
     {
         /// <summary>
