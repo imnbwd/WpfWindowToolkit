@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Base
@@ -88,9 +89,12 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Base
 
             EventHandler closeEventHanlder = (s, e) =>
             {
-                if (window.DataContext is IWindowReturnValue)
+                var vmType = window.DataContext.GetType();
+                var geType = typeof(IWindowReturnValue<>);
+
+                if (vmType is IWindowReturnValue)
                 {
-                    var value = (window.DataContext as IWindowReturnValue).Value;
+                    var value = (window.DataContext as IWindowReturnValue).ReturnValue;
                     if (value != null)
                     {
                         action?.Invoke((TReturnValue)value);
@@ -98,6 +102,26 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Base
                     else
                     {
                         action?.Invoke(default(TReturnValue));
+                    }
+                }
+                else
+                {
+                    // generic interface
+                    var geTypeInterface = vmType.GetInterfaces()
+                        .Where(t => t.IsGenericType)
+                        .FirstOrDefault(t => t.GetGenericTypeDefinition() == typeof(IWindowReturnValue<>));
+
+                    if (geTypeInterface != null)
+                    {
+                        var value = geTypeInterface.GetProperty(nameof(IWindowReturnValue.ReturnValue)).GetValue(window.DataContext, null);
+                        if (value != null)
+                        {
+                            action?.Invoke((TReturnValue)value);
+                        }
+                        else
+                        {
+                            action?.Invoke(default(TReturnValue));
+                        }
                     }
                 }
             };

@@ -53,6 +53,7 @@ Then the view model of the window need to be opened should inherit `ViewModelBas
     }
 
 ```
+Of course, you can use data binding to bind a more business specific model or a more complex data type that needs passing to another window.
 
 ### Close a window
 
