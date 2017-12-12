@@ -1,4 +1,6 @@
 # WpfWindowToolkit
+
+[![Join the chat at https://gitter.im/imnbwd/WpfWindowToolkit](https://badges.gitter.im/imnbwd/WpfWindowToolkit.svg)](https://gitter.im/imnbwd/WpfWindowToolkit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 A wpf windows toolkit for window operations, including some behaviors, useful class for view model. Available on [NuGet](https://www.nuget.org/packages/WpfWindowToolkit/)
 
 ## Features
