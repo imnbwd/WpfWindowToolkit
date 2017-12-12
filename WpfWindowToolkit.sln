@@ -7,7 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WpfWindowToolkit.Samples", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{A9C450B3-7B99-4285-B502-A4F4E471F9EF}"
 	ProjectSection(SolutionItems) = preProject
+		CHANGELOG.md = CHANGELOG.md
 		Screenshot\Demo.png = Screenshot\Demo.png
+		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
 EndProject
