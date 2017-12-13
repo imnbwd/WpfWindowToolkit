@@ -1,5 +1,7 @@
 # WpfWindowToolkit
 
+![Demo](https://github.com/imnbwd/WpfWindowToolkit/blob/master/Images/Logo.png)
+
 [![Join the chat at https://gitter.im/imnbwd/WpfWindowToolkit](https://badges.gitter.im/imnbwd/WpfWindowToolkit.svg)](https://gitter.im/imnbwd/WpfWindowToolkit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 A wpf windows toolkit for window operations, including some behaviors, useful class for view model. Available on [NuGet](https://www.nuget.org/packages/WpfWindowToolkit/)
@@ -88,4 +90,4 @@ By binding `ClosingCheckFunc` property to a function which type is `Func<bool>` 
 
 For more info, you could dive into the demo project, here is a screenshot for the demo app:
 
-![Demo](https://github.com/imnbwd/WpfWindowToolkit/blob/master/Screenshot/Demo1.2.png)
+![Demo](https://github.com/imnbwd/WpfWindowToolkit/blob/master/Images/Screenshot/Demo1.2.png)
