@@ -17,23 +17,23 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\bin\WpfWindowToolkit\DebugNET45\</OutputPath>
+    <OutputPath>..\bin\WpfWindowToolkit\DebugNET45\</OutputPath>
     <BaseIntermediateOutputPath>obj\DebugNET45</BaseIntermediateOutputPath>
     <DefineConstants>TRACE;DEBUG;NET45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\WpfWindowToolkit\DebugNET45\WpfWindowToolkit.xml</DocumentationFile>
+    <DocumentationFile>..\bin\WpfWindowToolkit\DebugNET45\WpfWindowToolkit.xml</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\WpfWindowToolkit\ReleaseNET45\</OutputPath>
+    <OutputPath>..\bin\WpfWindowToolkit\ReleaseNET45\</OutputPath>
     <BaseIntermediateOutputPath>obj\ReleaseNET45</BaseIntermediateOutputPath>
     <DefineConstants>TRACE;NET45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\WpfWindowToolkit\ReleaseNET45\WpfWindowToolkit.xml</DocumentationFile>
+    <DocumentationFile>..\bin\WpfWindowToolkit\ReleaseNET45\WpfWindowToolkit.xml</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
@@ -59,7 +59,9 @@
   <Import Project="..\PraiseHim.Rejoice.WpfWindowToolkit.Shared\PraiseHim.Rejoice.WpfWindowToolkit.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy $(TargetPath) ..\..\..\lib\NET45\ /y
-xcopy $(TargetDir)$(TargetName).xml ..\..\..\lib\NET45\ /y</PostBuildEvent>
+    <PostBuildEvent>if $(ConfigurationName) == Release (
+xcopy $(TargetPath) ..\..\..\lib\NET45\ /y
+xcopy $(TargetDir)System.Windows.Interactivity.dll  ..\..\..\lib\NET45\ /y
+xcopy $(TargetDir)$(TargetName).xml ..\..\..\Lib\NET45\ /y )</PostBuildEvent>
   </PropertyGroup>
 </Project>

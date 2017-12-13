@@ -1,7 +1,10 @@
 # Change log
 
+## 1.2.0
+- [x] Support for window opening in more complex scenarios and value returning
+
 ## 1.1.2
-- [x] Support multiple framework platform
+- [x] Support for multiple framework platform
 
 ## 1.0.3
 - [x] Add a behavior and an action

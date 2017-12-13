@@ -42,11 +42,120 @@
             desired value.
             </returns>
         </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IOpenWindow">
+            <summary>
+            Provides property and method for opening a new Window.
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.IOpenWindow.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo)">
+            <summary>
+            Open a window with the specific window info.
+            </summary>
+            <param name="openWindowInfo">The info of the window to be opened</param>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IOpenWindow2`1">
+            <summary>
+            Provides property and method for opening a new Window and handling the value.
+            </summary>
+            <typeparam name="TReturnValue">The data type of the return value</typeparam>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.IOpenWindow2`1.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo,System.Action{`0})">
+            <summary>
+            Open a window with the specific window info, and handle the return value when the target window closed.
+            </summary>
+            <param name="openWindowInfo">The info of the window to be opened</param>
+            <param name="action">The <see cref="T:System.Action"/> to handle the return value</param>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IView">
+            <summary>
+            Provides methods for handling what to do after a view loaded
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.IView.ViewLoaded">
+            <summary>
+            View loaded.
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IView2">
+            <summary>
+            Provides methods for handling what to do after a view loaded and unloaded
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.IView2.ViewUnloaded">
+            <summary>
+            View unloaded.
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IWindowReturnValue">
+            <summary>
+            Supports returning a value after a window closed.
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.IWindowReturnValue.ReturnValue">
+            <summary>
+            Get or set the value to be returned.
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IWindowReturnValue`1">
+            <summary>
+            Supports returning a value after a window closed.
+            </summary>
+            <typeparam name="T">The data type of return value</typeparam>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.IWindowReturnValue`1.ReturnValue">
+            <summary>
+            Get or set the value to be returned.
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo">
+            <summary>
+            Identifies the info for a window to be opened
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo.IsModal">
+            <summary>
+            Get or set whether the windows is modal or not. The defalut value is true.
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo.Parameter">
+            <summary>
+            Get or set the parameter to pass to the new window
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo.WindowType">
+            <summary>
+            Get or set the type of the window to be opened
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseDataEx">
+            <summary>
+            Provides the way to open a window
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseDataEx.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo)">
+            <summary>
+            Open a window with the specific window info.
+            </summary>
+            <param name="openWindowInfo">The info of the window to be opened</param>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseDataEx`1">
+            <summary>
+            Provides the way to open a window and return a value
+            </summary>
+            <typeparam name="TReturnValue">The data type of the value to be returned</typeparam>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseDataEx`1.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo,System.Action{`0})">
+            <summary>
+            Open a window with the specific window info, and handle the return value when the target window closed.
+            </summary>
+            <param name="openWindowInfo">The info of the window to be opened</param>
+            <param name="action">The <see cref="T:System.Action"/> to handle the return value</param>
+        </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseData`1">
             <summary>
             ViewModelBaseData
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">The parameter data type</typeparam>
         </member>
         <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseData`1.Data">
             <summary>
@@ -135,7 +244,7 @@
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowBehavior">
             <summary>
             A behavior for <see cref="T:System.Windows.Window"/> that can handle the closing event
-            </summary>
+            </summary>    
         </member>
         <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowBehavior.ClosingCheckFuncProperty">
             <summary>

@@ -17,22 +17,22 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\bin\WpfWindowToolkit\DebugNET40\</OutputPath>
+    <OutputPath>..\bin\WpfWindowToolkit\DebugNET40\</OutputPath>
     <BaseIntermediateOutputPath>obj\DebugNET40</BaseIntermediateOutputPath>
     <DefineConstants>TRACE;DEBUG;NET40</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\WpfWindowToolkit\DebugNET40\WpfWindowToolkit.xml</DocumentationFile>
+    <DocumentationFile>..\bin\WpfWindowToolkit\DebugNET40\WpfWindowToolkit.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\WpfWindowToolkit\ReleaseNET40\</OutputPath>
+    <OutputPath>..\bin\WpfWindowToolkit\ReleaseNET40\</OutputPath>
     <BaseIntermediateOutputPath>obj\ReleaseNET40</BaseIntermediateOutputPath>
     <DefineConstants>TRACE;NET40</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\WpfWindowToolkit\ReleaseNET40\WpfWindowToolkit.xml</DocumentationFile>
+    <DocumentationFile>..\bin\WpfWindowToolkit\ReleaseNET40\WpfWindowToolkit.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -59,7 +59,9 @@
   <Import Project="..\PraiseHim.Rejoice.WpfWindowToolkit.Shared\PraiseHim.Rejoice.WpfWindowToolkit.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy $(TargetPath) ..\..\..\lib\NET40\ /y
-xcopy $(TargetDir)$(TargetName).xml ..\..\..\lib\NET40\ /y</PostBuildEvent>
+    <PostBuildEvent>if $(ConfigurationName) == Release (
+xcopy $(TargetPath) ..\..\..\lib\NET40\ /y
+xcopy $(TargetDir)System.Windows.Interactivity.dll  ..\..\..\lib\NET40\ /y
+xcopy $(TargetDir)$(TargetName).xml ..\..\..\Lib\NET40\ /y )</PostBuildEvent>
   </PropertyGroup>
 </Project>
