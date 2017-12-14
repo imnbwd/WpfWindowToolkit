@@ -5,12 +5,6 @@ namespace WpfWindowToolkit.Demo.Models
 {
     public class Friend : BindableBase
     {
-        private DateTime _birthDate;
-        private string _email;
-        private string _id;
-        private bool _isDeveloper;
-        private string _name;
-
         /// <summary>
         /// Get or set BirthDate value
         /// </summary>
