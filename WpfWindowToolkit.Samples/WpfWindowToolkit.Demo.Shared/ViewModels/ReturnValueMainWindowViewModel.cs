@@ -4,8 +4,8 @@ using WpfWindowToolkit.Demo.Models;
 using WpfWindowToolkit.Demo.Views;
 
 namespace WpfWindowToolkit.Demo.ViewModels
-{
-    public class ReturnValueMainWindowViewModel : ViewModelBaseDataEx<Friend>
+{   
+    public class ReturnValueMainWindowViewModel : ViewModelBaseEx<Friend>
     {
         public void ShowFriendSelectionWindow()
         {

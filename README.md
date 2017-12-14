@@ -72,10 +72,10 @@ Of course, you can use data binding to bind a more business specific model or a 
 
 However, maybe you want to have more control concerning opening a window, not just using `OpenWindowAction` and `WindowHelper`. Here is what you can do:
 
-Firstly, the view model of first window should inherit from `ViewModelBaseDataEx`, then you can use its `ShowWindow(OpenWindowInfo)` method to open another window, so your code would be like this:
+Firstly, the view model of first window should inherit from `ViewModelBaseEx`, then you can use its `ShowWindow(OpenWindowInfo)` method to open another window, so your code would be like this:
 
 ```C#
-    public class MainViewModel : ViewModelBaseDataEx
+    public class MainViewModel : ViewModelBaseEx
     {
         ...
         public RelayCommand ComplexLogicForOpeningAWindowCommand
@@ -100,7 +100,7 @@ On the other hand, the view model of the second window which needs to be opened 
 When the opening window is closed, you may want to get a return value. To do this, firstly, the view model of the first window should inherit from `ViewModelBaseDataEx<T>`, here the type parameter is the type of the return value, then you can use `ShowWindow(OpenWindowInfo, Action<TReturnValue>)` method. The second parameter indicates how to handle or process the return value by passing it to an `Action`.
 
 ```C#
-    public class ReturnValueMainWindowViewModel : ViewModelBaseDataEx<Friend>
+    public class ReturnValueMainWindowViewModel : ViewModelBaseEx<Friend>
     {
         public void ShowFriendSelectionWindow()
         {

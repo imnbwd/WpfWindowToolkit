@@ -6,7 +6,7 @@ using WpfWindowToolkit.Demo.Views;
 
 namespace WpfWindowToolkit.Demo.ViewModels
 {
-    public class MainViewModel : ViewModelBaseDataEx
+    public class MainViewModel : ViewModelBaseEx
     {
         private Func<bool> _preCheck;
 
@@ -38,7 +38,7 @@ namespace WpfWindowToolkit.Demo.ViewModels
                 return new RelayCommand(() =>
                 {
                     /*
-                     * Firstly, the current view mdoel should inherit from ViewModelBaseDataEx
+                     * Firstly, the current view mdoel should inherit from ViewModelBaseEx
                      */
 
                     // your logic here (before)
