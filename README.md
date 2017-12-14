@@ -97,7 +97,7 @@ On the other hand, the view model of the second window which needs to be opened 
 
 ### Return a value from the opening window
 
-When the opening window is closed, you may want to get a return value. To do this, firstly, the view model of the first window should inherit from `ViewModelBaseDataEx<T>`, here the type parameter is the type of the return value, then you can use `ShowWindow(OpenWindowInfo, Action<TReturnValue>)` method. The second parameter indicates how to handle or process the return value by passing it to an `Action`.
+When the opening window is closed, you may want to get a return value. To do this, firstly, the view model of the first window should inherit from `ViewModelBaseEx<T>`, here the type parameter is the type of the return value, then you can use `ShowWindow(OpenWindowInfo, Action<TReturnValue>)` method. The second parameter indicates how to handle or process the return value by passing it to an `Action`.
 
 ```C#
     public class ReturnValueMainWindowViewModel : ViewModelBaseEx<Friend>
