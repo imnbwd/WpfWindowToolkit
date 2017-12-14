@@ -15,7 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Base\IView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\IWindowReturnValue.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\OpenWindowInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Base\ViewModelBaseDataEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Base\ViewModelBaseEx.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\ViewModelRootBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviors\CloseTabItemAction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviors\CloseWindowAction.cs" />
