@@ -46,6 +46,8 @@ or use `OpenWindowAction` like this:
 
 ### Open a window with parameter
 
+**# approach 1 & 2**
+
 When opening a Window, you can pass a parameter to its viewmodel. Firstly set the parameter, like this:
 ```XAML
     helpers:WindowHelper.Parameter="WPF (attached property)"
@@ -55,7 +57,7 @@ or
     <behaviors:OpenWindowAction Parameter="WPF (action)" WindowType="{x:Type local:Window1}" />
 ```
 
-Then the view model of the window need to be opened should inherit `ViewModelBaseData<T>`, here the type parameter `T` should be type of the parameter you want to passed to, for example:
+Then the view model of the window needed to be opened should inherit `ViewModelBaseData<T>`, here the type parameter `T` should be type of the parameter you want to passed to, for example:
 ```C#
     public class Window1ViewModel : ViewModelBaseData<string>
     {   
@@ -65,6 +67,71 @@ Then the view model of the window need to be opened should inherit `ViewModelBas
 
 ```
 Of course, you can use data binding to bind a more business specific model or a more complex data type that needs passing to another window.
+
+**# approach 3**
+
+However, maybe you want to have more control concerning opening a window, not just using `OpenWindowAction` and `WindowHelper`. Here is what you can do:
+
+Firstly, the view model of first window should inherit from `ViewModelBaseDataEx`, then you can use its `ShowWindow(OpenWindowInfo)` method to open another window, so your code would be like this:
+
+```C#
+    public class MainViewModel : ViewModelBaseDataEx
+    {
+        ...
+        public RelayCommand ComplexLogicForOpeningAWindowCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    // your logic here (before)
+                    this.ShowWindow(new OpenWindowInfo { IsModal = true, Parameter = CurrentFriend, WindowType = typeof(Window2) });
+                    // your logic here (after)
+                });
+            }
+        }
+    }
+```
+
+On the other hand, the view model of the second window which needs to be opened should be processed in the same way discussed previously, that is to inherit from `ViewModelBaseData<T>`.
+
+### Return a value from the opening window
+
+When the opening window is closed, you may want to get a return value. To do this, firstly, the view model of the first window should inherit from `ViewModelBaseDataEx<T>`, here the type parameter is the type of the return value, then you can use `ShowWindow(OpenWindowInfo, Action<TReturnValue>)` method. The second parameter indicates how to handle or process the return value by passing it to an `Action`.
+
+```C#
+    public class ReturnValueMainWindowViewModel : ViewModelBaseDataEx<Friend>
+    {
+        public void ShowFriendSelectionWindow()
+        {
+            this.ShowWindow(new OpenWindowInfo { WindowType = typeof(ReturnValueTestWindow) }, friend =>
+            {
+                if (friend != null)
+                {
+                    MessageBox.Show($"You have selected this friend: {friend.Name}");
+                }
+                else
+                {
+                    MessageBox.Show("No friend has been selected");
+                }
+            });
+        }
+    }
+```
+
+Then, the view model of the second window need implement the interface `IWindowReturnValue` or `IWindowReturnValue<T>` which only contain a property named `ReturnValue`, at a proper place set the value to this property. Here is the code:
+
+```C#
+    public class ReturnValueTestWindowViewModel : BindableBase, IWindowReturnValue<Friend>
+    {
+        ...
+        public void SetReturnValue() 
+        {
+            ReturnValue = SelectedFriend;
+        }
+        ...
+    }
+```
 
 ### Close a window
 
