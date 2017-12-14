@@ -11,7 +11,7 @@ A wpf windows toolkit for window operations, including some behaviors, useful cl
 ## Features
 
 * Handle Window opening, closing using behaviors
-* Pass parameters between windows 
+* Pass parameters and return value between windows 
 * Fully MVVM supported
 * Other utility behaviors
 ## Installation
