@@ -46,6 +46,18 @@
             <param name="openWindowInfo">The info of the window to be opened</param>
             <param name="action">The <see cref="T:System.Action"/> to handle the return value</param>
         </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IOpenWindow2">
+            <summary>
+            Provides property and method for opening a new Window and handling the value.
+            </summary>    
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.IOpenWindow2.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo,System.Action{System.Object})">
+            <summary>
+            Open a window with the specific window info, and handle the return value when the target window closed.
+            </summary>
+            <param name="openWindowInfo">The info of the window to be opened</param>
+            <param name="action">The <see cref="T:System.Action"/> to handle the return value</param>
+        </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IView">
             <summary>
             Provides methods for handling what to do after a view loaded
@@ -107,24 +119,31 @@
             Get or set the type of the window to be opened
             </summary>
         </member>
-        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseDataEx">
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseEx">
             <summary>
             Provides the way to open a window
             </summary>
         </member>
-        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseDataEx.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo)">
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseEx.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo)">
             <summary>
             Open a window with the specific window info.
             </summary>
             <param name="openWindowInfo">The info of the window to be opened</param>
         </member>
-        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseDataEx`1">
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseEx.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo,System.Action{System.Object})">
+            <summary>
+            Open a window with the specific window info, and handle the return value when the target window closed.
+            </summary>
+            <param name="openWindowInfo">The info of the window to be opened</param>
+            <param name="action">The <see cref="T:System.Action"/> to handle the return value</param>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseEx`1">
             <summary>
             Provides the way to open a window and return a value
             </summary>
             <typeparam name="TReturnValue">The data type of the value to be returned</typeparam>
         </member>
-        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseDataEx`1.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo,System.Action{`0})">
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseEx`1.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo,System.Action{`0})">
             <summary>
             Open a window with the specific window info, and handle the return value when the target window closed.
             </summary>

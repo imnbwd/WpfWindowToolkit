@@ -60,8 +60,8 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Release (
-xcopy $(TargetPath) ..\..\..\lib\NET45\ /y
-xcopy $(TargetDir)System.Windows.Interactivity.dll  ..\..\..\lib\NET45\ /y
-xcopy $(TargetDir)$(TargetName).xml ..\..\..\Lib\NET45\ /y )</PostBuildEvent>
+xcopy $(TargetPath) ..\..\..\..\lib\NET45\ /y
+xcopy $(TargetDir)System.Windows.Interactivity.dll ..\..\..\..\lib\NET45\ /y
+xcopy $(TargetDir)$(TargetName).xml ..\..\..\..\lib\NET45\ /y)</PostBuildEvent>
   </PropertyGroup>
 </Project>

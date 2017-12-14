@@ -1,6 +1,6 @@
 # Change log
 
-## 1.2.0
+## 1.2.1
 - [x] Support for window opening in more complex scenarios and value returning
 
 ## 1.1.2

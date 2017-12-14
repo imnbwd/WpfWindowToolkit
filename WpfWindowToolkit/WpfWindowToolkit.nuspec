@@ -2,13 +2,13 @@
 <package >
   <metadata>
     <id>WpfWindowToolkit</id>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <title>$title$</title>
     <authors>imnbwd</authors>
     <owners>imnbwd</owners>
     <licenseUrl>https://github.com/imnbwd/WpfWindowToolkit/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/imnbwd/WpfWindowToolkit</projectUrl>
-    <iconUrl>https://github.com/imnbwd/WpfWindowToolkit/blob/master/Images/Logo.png</iconUrl>
+    <iconUrl>https://github.com/imnbwd/WpfWindowToolkit/blob/master/Images/Logo.png?raw=true</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A wpf windows toolkit for window operations, including some behaviors, useful class for view model</description>
 <!--
