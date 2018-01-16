@@ -1,4 +1,5 @@
 ﻿using PraiseHim.Rejoice.WpfWindowToolkit.Base;
+using PraiseHim.Rejoice.WpfWindowToolkit.Utilities;
 using System;
 using System.Diagnostics;
 using System.Reflection;
@@ -132,7 +133,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             {
                 return;
             }
-            
+
             Window window = null;
             object windowObj = null;
 
@@ -173,27 +174,30 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
                     }
                 });
 
-                window.Closed += closeEventHanlder;
+            window.Closed += closeEventHanlder;
 
-                if (window.DataContext != null && window.DataContext is ViewModelRootBase)
-                {
-                    // set the data to viewmodel
-                    (window.DataContext as ViewModelRootBase).Data = Parameter;
-                }
-                //else
-                //{
-                //    window.Tag = Parameter;
-                //}
+            if (window.DataContext != null && window.DataContext is ViewModelRootBase)
+            {
+                // set the data to viewmodel
+                (window.DataContext as ViewModelRootBase).Data = Parameter;
+            }
+            //else
+            //{
+            //    window.Tag = Parameter;
+            //}
+            
+            if (IsModal)
+            {
+                // set the owner
+                window.Owner = AppWindow.GetCurrentActivatedWindow();
 
-                if (IsModal)
-                {
-                    window.ShowDialog();
-                }
-                else
-                {
-                    window.Show();
-                }
-           
+                window.ShowDialog();
+            }
+            else
+            {
+                window.Show();
+            }
+
         }
     }
 }

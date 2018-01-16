@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PraiseHim.Rejoice.WpfWindowToolkit.Utilities;
+using System;
 using System.Linq;
 using System.Windows;
 
@@ -38,9 +39,12 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Base
             {
                 (window.DataContext as ViewModelRootBase).Data = openWindowInfo.Parameter;
             }
-
+            
             if (openWindowInfo.IsModal)
             {
+                // set the owner
+                window.Owner = AppWindow.GetCurrentActivatedWindow();
+
                 window.ShowDialog();
             }
             else

@@ -1,4 +1,5 @@
 ﻿using PraiseHim.Rejoice.WpfWindowToolkit.Base;
+using PraiseHim.Rejoice.WpfWindowToolkit.Utilities;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -182,9 +183,12 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
                     // set the object to null after it is closed
                     window = null;
                 };
-
+                
                 if (isModel)
                 {
+                    // set the owner
+                    window.Owner = AppWindow.GetCurrentActivatedWindow();
+
                     window.ShowDialog();
                 }
                 else

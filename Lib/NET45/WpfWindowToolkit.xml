@@ -630,5 +630,11 @@
             <param name="obj"></param>
             <param name="value"></param>
         </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.AppWindow.GetCurrentActivatedWindow">
+            <summary>
+            Get the activated Window of the application
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>
