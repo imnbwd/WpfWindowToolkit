@@ -6,7 +6,7 @@ using System.Windows.Interactivity;
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
 {
     /// <summary>
-    /// An action to close a Window
+    /// An action to close a Window.
     /// </summary>
     public class CloseWindowAction : TriggerAction<FrameworkElement>
     {

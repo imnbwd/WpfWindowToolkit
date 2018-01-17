@@ -6,7 +6,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Utilities
     internal class AppWindow
     {
         /// <summary>
-        /// Get the activated Window of the application
+        /// Get the activated Window of the application.
         /// </summary>
         /// <returns></returns>
         internal static Window GetCurrentActivatedWindow()

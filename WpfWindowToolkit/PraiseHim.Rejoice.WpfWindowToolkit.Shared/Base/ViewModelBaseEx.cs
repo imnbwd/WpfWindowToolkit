@@ -6,14 +6,14 @@ using System.Windows;
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Base
 {
     /// <summary>
-    /// Provides the way to open a window
+    /// Provides the way to open a window.
     /// </summary>
     public class ViewModelBaseEx : BindableBase, IOpenWindow, IOpenWindow2
     {
         /// <summary>
         /// Open a window with the specific window info.
         /// </summary>
-        /// <param name="openWindowInfo">The info of the window to be opened</param>
+        /// <param name="openWindowInfo">The info of the window to be opened.</param>
         public virtual void ShowWindow(OpenWindowInfo openWindowInfo)
         {
             if (openWindowInfo == null || openWindowInfo.WindowType == null)
@@ -56,8 +56,8 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Base
         /// <summary>
         /// Open a window with the specific window info, and handle the return value when the target window closed.
         /// </summary>
-        /// <param name="openWindowInfo">The info of the window to be opened</param>
-        /// <param name="action">The <see cref="Action"/> to handle the return value</param>
+        /// <param name="openWindowInfo">The info of the window to be opened.</param>
+        /// <param name="action">The <see cref="Action"/> to handle the return value.</param>
         public virtual void ShowWindow(OpenWindowInfo openWindowInfo, Action<object> action)
         {
             if (openWindowInfo == null || openWindowInfo.WindowType == null)
@@ -124,9 +124,9 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Base
     }
 
     /// <summary>
-    /// Provides the way to open a window and return a value
+    /// Provides the way to open a window and return a value.
     /// </summary>
-    /// <typeparam name="TReturnValue">The data type of the value to be returned</typeparam>
+    /// <typeparam name="TReturnValue">The data type of the value to be returned.</typeparam>
     public class ViewModelBaseEx<TReturnValue> : ViewModelBaseEx, IOpenWindow, IOpenWindow2<TReturnValue>
     {
         /// <summary>

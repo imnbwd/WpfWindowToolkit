@@ -5,7 +5,7 @@ using System.Windows.Interactivity;
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
 {
     /// <summary>
-    /// An action to invoke a <see cref="ICommand"/>
+    /// An action to invoke a <see cref="ICommand"/>.
     /// </summary>
     internal class InvokeCommandAction : TriggerAction<FrameworkElement>
     {

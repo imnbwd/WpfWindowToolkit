@@ -11,15 +11,17 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AssemblyInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\BindableBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Base\IClosable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\IOpenWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\IView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\IWindowReturnValue.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\OpenWindowInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\ViewModelBaseEx.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\ViewModelRootBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\EnableWindowCloseBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviors\CloseTabItemAction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviors\CloseWindowAction.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\CloseWindowBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\ClosingWindowBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviors\InvokeCommandAction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviors\OpenTargetInTabControlAction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviors\OpenWindowAction.cs" />

@@ -5,7 +5,7 @@ using System.Windows.Interactivity;
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
 {
     /// <summary>
-    /// A trigger that fires when scrolling to a specific element in a ScrollViewer
+    /// A trigger that fires when scrolling to a specific element in a ScrollViewer.
     /// </summary>
     [TypeConstraint(typeof(ScrollViewer))]
     public class ScrollingTrigger : TriggerBase<ScrollViewer>

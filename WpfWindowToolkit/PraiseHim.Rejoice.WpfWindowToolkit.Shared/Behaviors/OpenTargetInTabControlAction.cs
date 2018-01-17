@@ -7,7 +7,7 @@ using System.Windows.Interactivity;
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
 {
     /// <summary>
-    /// An action that can show a control (mostly User Control) on the target TabControl as a new TabItem
+    /// An action that can show a control (mostly User Control) on the target TabControl as a new TabItem.
     /// </summary>
     public class OpenTargetInTabControlAction : TriggerAction<DependencyObject>
     {

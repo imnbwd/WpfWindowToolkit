@@ -9,7 +9,7 @@ using System.Windows.Input;
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
 {
     /// <summary>
-    /// WindowHelper, provides attached properties to open a window
+    /// WindowHelper, provides attached properties to open a window.
     /// </summary>
     public static class WindowHelper
     {
@@ -183,7 +183,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
                     // set the object to null after it is closed
                     window = null;
                 };
-                
+
                 if (isModel)
                 {
                     // set the owner

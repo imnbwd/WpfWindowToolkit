@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Base
 {
     /// <summary>
-    /// A class implemented the interface INotifyPropertyChanged
+    /// A class implemented the interface INotifyPropertyChanged.
     /// </summary>
     public class BindableBase : INotifyPropertyChanged
     {

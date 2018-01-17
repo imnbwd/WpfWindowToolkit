@@ -1,9 +1,9 @@
 ﻿namespace PraiseHim.Rejoice.WpfWindowToolkit.Base
 {
     /// <summary>
-    /// ViewModelBaseData
+    /// A view model base class, could receive data with the given data type.
     /// </summary>
-    /// <typeparam name="T">The parameter data type</typeparam>
+    /// <typeparam name="T">The parameter data type.</typeparam>
     public abstract class ViewModelBaseData<T> : ViewModelRootBase
     {
         /// <summary>
@@ -22,7 +22,7 @@
     }
 
     /// <summary>
-    /// ViewModelRootBase, inherits from <see cref="BindableBase"/> which implements <see cref="System.ComponentModel.INotifyPropertyChanged"/>, can be the base class of view model
+    /// ViewModelRootBase, inherits from <see cref="BindableBase"/> which implements <see cref="System.ComponentModel.INotifyPropertyChanged"/>, can be the base class of view model.
     /// </summary>
     public abstract class ViewModelRootBase : BindableBase
     {

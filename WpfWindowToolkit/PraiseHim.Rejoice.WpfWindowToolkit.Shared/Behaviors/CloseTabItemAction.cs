@@ -8,7 +8,7 @@ using System.Windows.Interactivity;
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
 {
     /// <summary>
-    /// An action to close the specific TabItem of the specific TabControl
+    /// An action to close the specific TabItem of the specific TabControl.
     /// Source: stackoverflow
     /// </summary>
     public class CloseTabItemAction : TriggerAction<DependencyObject>

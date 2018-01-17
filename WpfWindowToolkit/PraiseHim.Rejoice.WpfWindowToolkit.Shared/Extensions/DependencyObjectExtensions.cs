@@ -6,12 +6,12 @@ using System.Windows.Media;
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Extensions
 {
     /// <summary>
-    /// Extension methods for <see cref="DependencyObject"/>
+    /// Extension methods for <see cref="DependencyObject"/>.
     /// </summary>
     public static class DependencyObjectExtensions
     {
         /// <summary>
-        /// Get the first elment with the specific type and condition under the current element in visual tree
+        /// Get the first elment with the specific type and condition under the current element in visual tree.
         /// </summary>
         /// <typeparam name="T"/><peparam/>
         /// <param name="p_element"></param>
