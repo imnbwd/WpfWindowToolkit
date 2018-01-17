@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>WpfWindowToolkit</id>
-    <version>1.2.1</version>
+    <version>2.0.0</version>
     <title>$title$</title>
     <authors>imnbwd</authors>
     <owners>imnbwd</owners>
@@ -14,7 +14,7 @@
 <!--
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
 -->
-    <copyright>Copyright imnbwd 2017</copyright>
+    <copyright>Copyright imnbwd 2018</copyright>
     <tags>wpf mvvm window toolkit xaml wpftoolkit window viewmodel behavior</tags>
   </metadata>
   <files>

@@ -16,7 +16,7 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <i:Interaction.Behaviors>
-        <behaviors:CloseWindowBehavior ClosingCheckFunc="{Binding CheckBeforeCloseWindow}" />
+        <behaviors:ClosingWindowBehavior ClosingCheckFunc="{Binding CheckBeforeCloseWindow}" />
     </i:Interaction.Behaviors>
     <Grid>
         <TabControl Margin="10">
@@ -133,6 +133,13 @@
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Click">
                                         <behaviors:OpenWindowAction IsModal="False" WindowType="{x:Type local:ReturnValueMainWindow}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Button>
+                            <Button Margin="0,5,0,0" Content="Close window with complex logic">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <behaviors:OpenWindowAction WindowType="{x:Type local:CloseTestWindow}" />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </Button>

@@ -1,4 +1,7 @@
 # Change log
+## 2.0.0
+- [x] Set the ower for the window which openned in a modal manner
+- [x] Enable to close a window from its view model
 
 ## 1.2.1
 - [x] Support for window opening in more complex scenarios and value returning

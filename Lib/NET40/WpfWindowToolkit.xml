@@ -6,7 +6,7 @@
     <members>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.BindableBase">
             <summary>
-            A class implemented the interface INotifyPropertyChanged
+            A class implemented the interface INotifyPropertyChanged.
             </summary>
         </member>
         <member name="E:PraiseHim.Rejoice.WpfWindowToolkit.Base.BindableBase.PropertyChanged">
@@ -21,6 +21,16 @@
             <param name="propertyName">
             Name of the property used to notify listeners.
             </param>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IClosable">
+            <summary>
+            Provides action to close a Window form its view model. In order to do so, that view modle should implement this interface.
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.IClosable.CloseWindow">
+            <summary>
+            Get or set CloseWindow action, this action should be a method that could close the corresponding Window.
+            </summary>
         </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IOpenWindow">
             <summary>
@@ -60,7 +70,7 @@
         </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IView">
             <summary>
-            Provides methods for handling what to do after a view loaded
+            Provides methods for handling what to do after a view loaded.
             </summary>
         </member>
         <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.IView.ViewLoaded">
@@ -70,7 +80,7 @@
         </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IView2">
             <summary>
-            Provides methods for handling what to do after a view loaded and unloaded
+            Provides methods for handling what to do after a view loaded and unloaded.
             </summary>
         </member>
         <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.IView2.ViewUnloaded">
@@ -101,7 +111,7 @@
         </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo">
             <summary>
-            Identifies the info for a window to be opened
+            Identifies the info for a window to be opened.
             </summary>
         </member>
         <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo.IsModal">
@@ -111,37 +121,37 @@
         </member>
         <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo.Parameter">
             <summary>
-            Get or set the parameter to pass to the new window
+            Get or set the parameter to pass to the new window.
             </summary>
         </member>
         <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo.WindowType">
             <summary>
-            Get or set the type of the window to be opened
+            Get or set the type of the window to be opened.
             </summary>
         </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseEx">
             <summary>
-            Provides the way to open a window
+            Provides the way to open a window.
             </summary>
         </member>
         <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseEx.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo)">
             <summary>
             Open a window with the specific window info.
             </summary>
-            <param name="openWindowInfo">The info of the window to be opened</param>
+            <param name="openWindowInfo">The info of the window to be opened.</param>
         </member>
         <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseEx.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo,System.Action{System.Object})">
             <summary>
             Open a window with the specific window info, and handle the return value when the target window closed.
             </summary>
-            <param name="openWindowInfo">The info of the window to be opened</param>
-            <param name="action">The <see cref="T:System.Action"/> to handle the return value</param>
+            <param name="openWindowInfo">The info of the window to be opened.</param>
+            <param name="action">The <see cref="T:System.Action"/> to handle the return value.</param>
         </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseEx`1">
             <summary>
-            Provides the way to open a window and return a value
+            Provides the way to open a window and return a value.
             </summary>
-            <typeparam name="TReturnValue">The data type of the value to be returned</typeparam>
+            <typeparam name="TReturnValue">The data type of the value to be returned.</typeparam>
         </member>
         <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseEx`1.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo,System.Action{`0})">
             <summary>
@@ -152,9 +162,9 @@
         </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseData`1">
             <summary>
-            ViewModelBaseData
+            A view model base class, could receive data with the given data type.
             </summary>
-            <typeparam name="T">The parameter data type</typeparam>
+            <typeparam name="T">The parameter data type.</typeparam>
         </member>
         <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseData`1.Data">
             <summary>
@@ -168,7 +178,7 @@
         </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelRootBase">
             <summary>
-            ViewModelRootBase, inherits from <see cref="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.BindableBase"/> which implements <see cref="T:System.ComponentModel.INotifyPropertyChanged"/>, can be the base class of view model
+            ViewModelRootBase, inherits from <see cref="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.BindableBase"/> which implements <see cref="T:System.ComponentModel.INotifyPropertyChanged"/>, can be the base class of view model.
             </summary>
         </member>
         <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelRootBase.Data">
@@ -176,9 +186,29 @@
             Get or set the data that passed to this view model
             </summary>
         </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.EnableWindowCloseBehavior">
+            <summary>
+            A behavior that enables to close a window in its view model, that view model should implement <see cref="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IClosable"/> interface, and invoke CloseWindow action in a proper place.
+            </summary>    
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.EnableWindowCloseBehavior.OnAttached">
+            <summary>
+            When attached
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.EnableWindowCloseBehavior.OnDetaching">
+            <summary>
+            When detaching
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.EnableWindowCloseBehavior.AssignCloseWindowAction">
+            <summary>
+            Assign close action for CloseWindow action.
+            </summary>
+        </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseTabItemAction">
             <summary>
-            An action to close the specific TabItem of the specific TabControl
+            An action to close the specific TabItem of the specific TabControl.
             Source: stackoverflow
             </summary>
         </member>
@@ -220,7 +250,7 @@
         </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowAction">
             <summary>
-            An action to close a Window
+            An action to close a Window.
             </summary>
         </member>
         <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowAction.ClosingCheckFuncProperty">
@@ -240,35 +270,35 @@
             </summary>
             <param name="parameter"></param>
         </member>
-        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowBehavior">
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ClosingWindowBehavior">
             <summary>
-            A behavior for <see cref="T:System.Windows.Window"/> that can handle the closing event
+            A behavior for <see cref="T:System.Windows.Window"/> that can handle the closing event.
             </summary>    
         </member>
-        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowBehavior.ClosingCheckFuncProperty">
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ClosingWindowBehavior.ClosingCheckFuncProperty">
             <summary>
             ClosingCheckFunc dp
             </summary>
         </member>
-        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowBehavior.ClosingCheckFunc">
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ClosingWindowBehavior.ClosingCheckFunc">
             <summary>
-            Get or set a function that returns a boolean value indicating whether the <see cref="T:System.Windows.Window"/> can be closed or not
+            Get or set a function that returns a boolean value indicating whether the <see cref="T:System.Windows.Window"/> can be closed or not.
             </summary>
-            <remarks>If the result of function is true, the window can be closed, otherwise, cannot</remarks>
+            <remarks>If the result of function is true, the window can be closed, otherwise, cannot.</remarks>
         </member>
-        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowBehavior.OnAttached">
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ClosingWindowBehavior.OnAttached">
             <summary>
             When attached
             </summary>
         </member>
-        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowBehavior.OnDetaching">
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ClosingWindowBehavior.OnDetaching">
             <summary>
             When detaching
             </summary>
         </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.InvokeCommandAction">
             <summary>
-            An action to invoke a <see cref="T:System.Windows.Input.ICommand"/>
+            An action to invoke a <see cref="T:System.Windows.Input.ICommand"/>.
             </summary>
         </member>
         <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.InvokeCommandAction.Command">
@@ -289,7 +319,7 @@
         </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenTargetInTabControlAction">
             <summary>
-            An action that can show a control (mostly User Control) on the target TabControl as a new TabItem
+            An action that can show a control (mostly User Control) on the target TabControl as a new TabItem.
             </summary>
         </member>
         <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenTargetInTabControlAction.AllowMultiInstanceProperty">
@@ -435,7 +465,7 @@
         </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ScrollingTrigger">
             <summary>
-            A trigger that fires when scrolling to a specific element in a ScrollViewer
+            A trigger that fires when scrolling to a specific element in a ScrollViewer.
             </summary>
         </member>
         <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ScrollingTrigger.TargetElementProperty">
@@ -460,7 +490,7 @@
         </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ScrollToTargetAction">
             <summary>
-            An action that makes the specific ScrollViewer scrolls to the target element vertically
+            An action that makes the specific ScrollViewer scrolls to the target element vertically.
             </summary>
         </member>
         <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ScrollToTargetAction.ScrollViewerProperty">
@@ -491,12 +521,12 @@
         </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Extensions.DependencyObjectExtensions">
             <summary>
-            Extension methods for <see cref="T:System.Windows.DependencyObject"/>
+            Extension methods for <see cref="T:System.Windows.DependencyObject"/>.
             </summary>
         </member>
         <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Extensions.DependencyObjectExtensions.GetChild``1(System.Windows.DependencyObject,System.Func{``0,System.Boolean})">
             <summary>
-            Get the first elment with the specific type and condition under the current element in visual tree
+            Get the first elment with the specific type and condition under the current element in visual tree.
             </summary>
             <typeparam name="T"/><peparam/>
             <param name="p_element"></param>
@@ -531,7 +561,7 @@
         </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper">
             <summary>
-            WindowHelper, provides attached properties to open a window
+            WindowHelper, provides attached properties to open a window.
             </summary>
         </member>
         <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.CommandAfterCloseProperty">
@@ -612,7 +642,7 @@
         </member>
         <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.AppWindow.GetCurrentActivatedWindow">
             <summary>
-            Get the activated Window of the application
+            Get the activated Window of the application.
             </summary>
             <returns></returns>
         </member>
