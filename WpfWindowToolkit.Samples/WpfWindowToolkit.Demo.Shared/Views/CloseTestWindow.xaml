@@ -14,9 +14,9 @@
     DataContext="{Binding CloseTestViewModel, Source={StaticResource Locator}}"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <!--<i:Interaction.Behaviors>
+    <i:Interaction.Behaviors>
         <behavior:EnableWindowCloseBehavior />
-    </i:Interaction.Behaviors>-->
+    </i:Interaction.Behaviors>
     <Grid>
         <Button
             Margin="10,5"

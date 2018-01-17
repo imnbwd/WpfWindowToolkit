@@ -147,13 +147,41 @@ By using `CloseWindowAction`, you can add the functionality to close the current
 ```
 ### Handle window closing event
 
-To handle window closing event, you can use `CloseWindowBehavior`, attach it to a Window like this:
+To handle window closing event, you can use `ClosingWindowBehavior`, attach it to a Window like this:
 ```XAML
     <i:Interaction.Behaviors>
-        <behaviors:CloseWindowBehavior ClosingCheckFunc="{Binding CheckBeforeCloseWindow}" />
+        <behaviors:ClosingWindowBehavior ClosingCheckFunc="{Binding CheckBeforeCloseWindow}" />
     </i:Interaction.Behaviors>
 ```
 By binding `ClosingCheckFunc` property to a function which type is `Func<bool>` to indicate whether the window can be closed or not.
+
+
+### Close window from view model
+
+Sometimes, before closing the window, there is some logic in the view model needed to be executed, to do this, just follow the 2 steps:
+
+Firstly, add the behavior `EnableWindowCloseBehavior` to the window that needs to be closed from view model like this:
+
+```XAML
+    <Window>
+        <i:Interaction.Behaviors>
+            <behavior:EnableWindowCloseBehavior />
+        </i:Interaction.Behaviors>
+    ...
+    </Window>
+```
+
+Then, the corresponding view model should implement `IClosable` which contains an `Action` named `CloseAction`:
+```C#
+    public class CloseTestViewModel : BindableBase, IClosable
+    {
+        public Action CloseWindow { get; set; }
+    }
+```
+At a proper place, you could invoke `CloseWindow` action to close the window:
+```C#
+   CloseWindow?.Invoke();  // or just CloseWindow();
+```
 
 ## More info
 
