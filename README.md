@@ -176,6 +176,7 @@ Then, the corresponding view model should implement `IClosable` which contains a
     public class CloseTestViewModel : BindableBase, IClosable
     {
         public Action CloseWindow { get; set; }
+        ...
     }
 ```
 At a proper place, you could invoke `CloseWindow` action to close the window:
