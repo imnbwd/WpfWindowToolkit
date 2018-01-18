@@ -160,7 +160,7 @@ By binding `ClosingCheckFunc` property to a function which type is `Func<bool>` 
 
 Sometimes, before closing the window, there is some logic in the view model needed to be executed, to do this, just follow the 2 steps:
 
-Firstly, add the behavior `EnableWindowCloseBehavior` to the window that needs to be closed from view model like this:
+Firstly, add the behavior `EnableWindowCloseBehavior` to the window that needs to be closed from its view model like this:
 
 ```XAML
     <Window>
