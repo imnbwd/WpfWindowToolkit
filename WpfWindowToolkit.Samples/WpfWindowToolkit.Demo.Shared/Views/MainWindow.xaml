@@ -27,13 +27,13 @@
                             <Button
                                 x:Name="btn1"
                                 helpers:WindowHelper.OpenWindowType="{x:Type local:Window1}"
-                                Content="Open window using Window Helper" />
+                                Content="Open window using WindowHelper" />
                             <Button
                                 x:Name="btn2"
                                 Margin="0,5,0,0"
                                 helpers:WindowHelper.OpenWindowType="{x:Type local:Window1}"
                                 helpers:WindowHelper.Parameter="WPF (attached property)"
-                                Content="Open window with parameter using Window Helper" />
+                                Content="Open window with parameter using WindowHelper" />
                             <Button
                                 x:Name="btn3"
                                 Margin="0,5,0,0"
@@ -43,7 +43,7 @@
                                 Content="Invoke a command after window closed" />
                         </StackPanel>
                     </GroupBox>
-                    <GroupBox Margin="0,5,0,0" Header="OpenWindowAction">
+                    <GroupBox Margin="0,5,0,0" Header="Open a window">
                         <StackPanel Margin="5">
                             <Button x:Name="btn4" Content="Open window using action">
                                 <i:Interaction.Triggers>
@@ -104,7 +104,7 @@
                             </Button>
                         </StackPanel>
                     </GroupBox>
-                    <GroupBox Margin="0,5,0,0" Header="CloseWindowAction">
+                    <GroupBox Margin="0,5,0,0" Header="Close a window">
                         <StackPanel Margin="5">
                             <Button Content="Close the current window">
                                 <i:Interaction.Triggers>

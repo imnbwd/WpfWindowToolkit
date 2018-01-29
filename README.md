@@ -188,4 +188,4 @@ At a proper place, you could invoke `CloseWindow` action to close the window:
 
 For more info, you could dive into the demo project, here is a screenshot for the demo app:
 
-![Demo](https://github.com/imnbwd/WpfWindowToolkit/blob/master/Images/Screenshot/Demo1.2.png)
+![Demo](https://github.com/imnbwd/WpfWindowToolkit/blob/master/Images/Screenshot/Demo.png)
