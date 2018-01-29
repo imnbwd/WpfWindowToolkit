@@ -28,7 +28,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Behaviors\ScrollingTrigger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviors\ScrollToTargetAction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DependencyObjectExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\WindowHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\WindowHelper.OpenWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\WindowHelper.Control.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\AppWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\WindowController.cs" />
   </ItemGroup>
 </Project>

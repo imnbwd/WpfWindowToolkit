@@ -9,9 +9,9 @@ using System.Windows.Input;
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
 {
     /// <summary>
-    /// WindowHelper, provides attached properties to open a window.
+    /// WindowHelper, provides attached properties to do some operations on a window including open, maximize, minimize, etc.
     /// </summary>
-    public static class WindowHelper
+    public static partial class WindowHelper
     {
         /// <summary>
         /// CommandAfterClose attached property

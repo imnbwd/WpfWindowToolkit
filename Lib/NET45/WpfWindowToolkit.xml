@@ -581,8 +581,12 @@
         </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper">
             <summary>
-            WindowHelper, provides attached properties to open a window.
+            WindowHelper, provides attached properties to do some operations on a window including open, maximize, minimize, etc.
             </summary>
+            <summary>
+            WindowHelper, provides attached properties to do some operations on a window including open, maximize, minimize, etc.
+            </summary>
+            <remarks>Part of the code from here: https://coderelief.net/2010/04/19/wpf-window-disable-minimize-and-maximize-buttons-through-attached-properties-from-xaml/ </remarks>
         </member>
         <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.CommandAfterCloseProperty">
             <summary>
@@ -665,6 +669,48 @@
             Get the activated Window of the application.
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.WindowController">
+            <summary>
+            WindowController
+            </summary>
+            <remarks>Code from here:https://coderelief.net/2010/04/19/wpf-window-disable-minimize-and-maximize-buttons-through-attached-properties-from-xaml/ </remarks>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.WindowController.DisableMaximize(System.Windows.Window)">
+             <summary>
+             Disables the maximize functionality of a WPF window.
+             </summary>
+            The WPF window to be modified.
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.WindowController.DisableMinimize(System.Windows.Window)">
+             <summary>
+             Disables the minimize functionality of a WPF window.
+             </summary>
+            The WPF window to be modified.
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.WindowController.EnableMaximize(System.Windows.Window)">
+             <summary>
+             Enables the maximize functionality of a WPF window.
+             </summary>
+            The WPF window to be modified.
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.WindowController.EnableMinimize(System.Windows.Window)">
+             <summary>
+             Enables the minimize functionality of a WPF window.
+             </summary>
+            The WPF window to be modified.
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.WindowController.ToggleMaximize(System.Windows.Window)">
+             <summary>
+             Toggles the enabled state of a WPF window's maximize functionality.
+             </summary>
+            The WPF window to be modified.
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.WindowController.ToggleMinimize(System.Windows.Window)">
+             <summary>
+             Toggles the enabled state of a WPF window's minimize functionality.
+             </summary>
+            The WPF window to be modified.
         </member>
     </members>
 </doc>
