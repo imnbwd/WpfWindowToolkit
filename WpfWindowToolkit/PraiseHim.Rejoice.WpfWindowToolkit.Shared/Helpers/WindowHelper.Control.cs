@@ -1,4 +1,5 @@
-﻿using PraiseHim.Rejoice.WpfWindowToolkit.Utilities;
+﻿using PraiseHim.Rejoice.WpfWindowToolkit.Extensions;
+using PraiseHim.Rejoice.WpfWindowToolkit.Utilities;
 using System.Windows;
 
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
@@ -11,15 +12,29 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
     {
         #region CanMaximize
 
+        /// <summary>
+        /// CanMaximize attached property
+        /// </summary>
         public static readonly DependencyProperty CanMaximize =
             DependencyProperty.RegisterAttached("CanMaximize", typeof(bool), typeof(Window),
                 new PropertyMetadata(true, new PropertyChangedCallback(OnCanMaximizeChanged)));
 
+        /// <summary>
+        /// Get the value indicated whether the attached Window can be maximized
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
         public static bool GetCanMaximize(DependencyObject d)
         {
             return (bool)d.GetValue(CanMaximize);
         }
 
+        /// <summary>
+        /// Set the value indicated whether the attached Window can be maximized
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static void SetCanMaximize(DependencyObject d, bool value)
         {
             d.SetValue(CanMaximize, value);
@@ -28,6 +43,12 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
         private static void OnCanMaximizeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             Window window = d as Window;
+
+            if (window == null)
+            {
+                window = d.GetParent<Window>();
+            }
+
             if (window != null)
             {
                 RoutedEventHandler loadedHandler = null;
@@ -59,15 +80,28 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
 
         #region CanMinimize
 
+        /// <summary>
+        /// CanMinimize attached property
+        /// </summary>
         public static readonly DependencyProperty CanMinimize =
             DependencyProperty.RegisterAttached("CanMinimize", typeof(bool), typeof(Window),
                 new PropertyMetadata(true, new PropertyChangedCallback(OnCanMinimizeChanged)));
 
+        /// <summary>
+        /// Get the value indicated whether the attached Window can be minimized
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
         public static bool GetCanMinimize(DependencyObject d)
         {
             return (bool)d.GetValue(CanMinimize);
         }
 
+        /// <summary>
+        /// Set the value indicated whether the attached Window can be minimized
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="value"></param>
         public static void SetCanMinimize(DependencyObject d, bool value)
         {
             d.SetValue(CanMinimize, value);
@@ -76,6 +110,12 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
         private static void OnCanMinimizeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             Window window = d as Window;
+
+            if (window == null)
+            {
+                window = d.GetParent<Window>();
+            }
+
             if (window != null)
             {
                 RoutedEventHandler loadedHandler = null;

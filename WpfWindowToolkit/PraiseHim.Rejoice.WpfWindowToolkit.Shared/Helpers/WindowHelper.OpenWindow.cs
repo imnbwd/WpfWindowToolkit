@@ -119,25 +119,33 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
 
         private static void OnOpenWindowTypeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            // make it available for Button, Hyperlink, MenutItem
-            dynamic control = null;
-            switch (d.GetType().Name)
+            //// make it available for Button, Hyperlink, MenutItem
+            //dynamic control = null;
+            //switch (d.GetType().Name)
+            //{
+            //    case nameof(Button):
+            //        control = d as Button;
+            //        break;
+
+            //    case nameof(Hyperlink):
+            //        control = d as Hyperlink;
+            //        break;
+
+            //    case nameof(MenuItem):
+            //        control = d as MenuItem;
+            //        break;
+
+            //    default:
+            //        return;
+            //}
+
+            // make it avaible for those controls which has Click event
+            var eventInfo = d.GetType().GetEvent("Click");
+            if (eventInfo == null)
             {
-                case nameof(Button):
-                    control = d as Button;
-                    break;
-
-                case nameof(Hyperlink):
-                    control = d as Hyperlink;
-                    break;
-
-                case nameof(MenuItem):
-                    control = d as MenuItem;
-                    break;
-
-                default:
-                    return;
+                throw new InvalidOperationException("The control attached does not have a event named Click");
             }
+
 
             var type = GetOpenWindowType(d);
             if (type == null && type != typeof(Window))
@@ -197,8 +205,10 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
                 }
             });
 
-            control.Click -= clickEventHandler;
-            control.Click += clickEventHandler;
+            //control.Click -= clickEventHandler;
+            //control.Click += clickEventHandler;
+            eventInfo.RemoveEventHandler(d, clickEventHandler);
+            eventInfo.AddEventHandler(d, clickEventHandler);
         }
     }
 }

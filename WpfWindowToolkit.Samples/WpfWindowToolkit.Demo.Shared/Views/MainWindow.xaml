@@ -43,7 +43,7 @@
                                 Content="Invoke a command after window closed" />
                         </StackPanel>
                     </GroupBox>
-                    <GroupBox Margin="0,5,0,0" Header="Open a window">
+                    <GroupBox Margin="0,5,0,0" Header="Open windows">
                         <StackPanel Margin="5">
                             <Button x:Name="btn4" Content="Open window using action">
                                 <i:Interaction.Triggers>
@@ -104,7 +104,7 @@
                             </Button>
                         </StackPanel>
                     </GroupBox>
-                    <GroupBox Margin="0,5,0,0" Header="Close a window">
+                    <GroupBox Margin="0,5,0,0" Header="Close windows">
                         <StackPanel Margin="5">
                             <Button Content="Close the current window">
                                 <i:Interaction.Triggers>

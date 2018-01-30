@@ -664,6 +664,45 @@
             <param name="obj"></param>
             <param name="value"></param>
         </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.CanMaximize">
+            <summary>
+            CanMaximize attached property
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.GetCanMaximize(System.Windows.DependencyObject)">
+            <summary>
+            Get the value indicated whether the attached Window can be maximized
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.SetCanMaximize(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Set the value indicated whether the attached Window can be maximized
+            </summary>
+            <param name="d"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.CanMinimize">
+            <summary>
+            CanMinimize attached property
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.GetCanMinimize(System.Windows.DependencyObject)">
+            <summary>
+            Get the value indicated whether the attached Window can be minimized
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.SetCanMinimize(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Set the value indicated whether the attached Window can be minimized
+            </summary>
+            <param name="d"></param>
+            <param name="value"></param>
+        </member>
         <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.AppWindow.GetCurrentActivatedWindow">
             <summary>
             Get the activated Window of the application.
