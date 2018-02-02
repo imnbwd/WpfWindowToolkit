@@ -16,7 +16,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
         /// CanMaximize attached property
         /// </summary>
         public static readonly DependencyProperty CanMaximize =
-            DependencyProperty.RegisterAttached("CanMaximize", typeof(bool), typeof(Window),
+            DependencyProperty.RegisterAttached("CanMaximize", typeof(bool), typeof(WindowHelper),
                 new PropertyMetadata(true, new PropertyChangedCallback(OnCanMaximizeChanged)));
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
         /// CanMinimize attached property
         /// </summary>
         public static readonly DependencyProperty CanMinimize =
-            DependencyProperty.RegisterAttached("CanMinimize", typeof(bool), typeof(Window),
+            DependencyProperty.RegisterAttached("CanMinimize", typeof(bool), typeof(WindowHelper),
                 new PropertyMetadata(true, new PropertyChangedCallback(OnCanMinimizeChanged)));
 
         /// <summary>

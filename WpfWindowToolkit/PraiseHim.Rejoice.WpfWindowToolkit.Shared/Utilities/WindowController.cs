@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Windows;
 using System.Windows.Interop;
 
@@ -16,12 +14,6 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Utilities
         private const Int32 GWL_STYLE = -16;
         private const Int32 WS_MAXIMIZEBOX = 0x00010000;
         private const Int32 WS_MINIMIZEBOX = 0x00020000;
-
-        [DllImport("User32.dll", EntryPoint = "GetWindowLong")]
-        private extern static Int32 GetWindowLongPtr(IntPtr hWnd, Int32 nIndex);
-
-        [DllImport("User32.dll", EntryPoint = "SetWindowLong")]
-        private extern static Int32 SetWindowLongPtr(IntPtr hWnd, Int32 nIndex, Int32 dwNewLong);
 
         /// <summary>
         /// Disables the maximize functionality of a WPF window.
@@ -122,5 +114,11 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Utilities
                 }
             }
         }
+
+        [DllImport("User32.dll", EntryPoint = "GetWindowLong")]
+        private extern static Int32 GetWindowLongPtr(IntPtr hWnd, Int32 nIndex);
+
+        [DllImport("User32.dll", EntryPoint = "SetWindowLong")]
+        private extern static Int32 SetWindowLongPtr(IntPtr hWnd, Int32 nIndex, Int32 dwNewLong);
     }
 }
