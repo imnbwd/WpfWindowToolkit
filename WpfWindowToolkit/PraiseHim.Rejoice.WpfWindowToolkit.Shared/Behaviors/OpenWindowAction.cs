@@ -155,6 +155,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
                     {
                         if (window.DataContext is IWindowReturnValue)
                         {
+                            returnValue = (window.DataContext as IWindowReturnValue).ReturnValue;
                         }
                         else
                         {
