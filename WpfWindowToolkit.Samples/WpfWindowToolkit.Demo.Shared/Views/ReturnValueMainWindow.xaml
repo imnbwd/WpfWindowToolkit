@@ -6,6 +6,7 @@
     xmlns:converters="clr-namespace:WpfWindowToolkit.Demo.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:helpers="clr-namespace:PraiseHim.Rejoice.WpfWindowToolkit.Helpers;assembly=WpfWindowToolkit"
     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:local="clr-namespace:WpfWindowToolkit.Demo.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -30,7 +31,7 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Button>
-            <TextBlock Margin="0,5,0,0" Foreground="#666">
+            <TextBlock Margin="0,2,0,0" Foreground="#666">
                 <Run>Use</Run>
                 <Run FontWeight="Bold">CommandAfterClose</Run>
                 <Run>property</Run>
@@ -47,7 +48,7 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Button>
-            <TextBlock Margin="0,5,0,0" Foreground="#666">
+            <TextBlock Margin="0,2,0,0" Foreground="#666">
                 <Run>Use</Run>
                 <Run FontWeight="Bold">MethodAfterClose</Run>
                 <Run>property</Run>
@@ -64,11 +65,19 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Button>
-            <TextBlock Margin="0,5,0,0" Foreground="#666">
+            <TextBlock Margin="0,2,0,0" Foreground="#666">
                 <Run>Use</Run>
                 <Run FontWeight="Bold">ShowWindow</Run>
                 <Run>method</Run>
             </TextBlock>
+
+            <Button
+                Margin="0,20,0,0"
+                Padding="10,5"
+                HorizontalAlignment="Left"
+                helpers:WindowHelper.CommandAfterClose="{Binding ProcessReturnValueCommand}"
+                helpers:WindowHelper.OpenWindowType="{x:Type local:ReturnValueTestWindow}"
+                Content="Open  (use WindowHelper) " />
         </StackPanel>
     </Grid>
 </Window>
