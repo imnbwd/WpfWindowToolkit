@@ -2,8 +2,6 @@
 using PraiseHim.Rejoice.WpfWindowToolkit.Utilities;
 using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
 
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
@@ -146,7 +144,6 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
                 throw new InvalidOperationException("The control attached does not have a event named Click");
             }
 
-
             var type = GetOpenWindowType(d);
             if (type == null && type != typeof(Window))
             {
@@ -154,6 +151,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
             }
 
             Window window = null;
+
             var clickEventHandler = new RoutedEventHandler((s, arg) =>
             {
                 if (window == null)
@@ -172,20 +170,18 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
                     {
                         (window.DataContext as ViewModelRootBase).Data = GetParameter(d);
                     }
-                    //else
-                    //{
-                    //    window.Tag = GetParameter(d);
-                    //}
                 }
 
                 var isModel = GetIsModal(d);
 
-                window.Closed += (win, closeArgs) =>
+                window.Closed += (win, args) =>
                 {
+                    // try to get the return value from the window's view model
+                    var returnValue = window.TryGetReturnValue();
                     var command = GetCommandAfterClose(d);
                     if (command != null)
                     {
-                        command.Execute(null);
+                        command.Execute(returnValue);
                     }
 
                     // set the object to null after it is closed

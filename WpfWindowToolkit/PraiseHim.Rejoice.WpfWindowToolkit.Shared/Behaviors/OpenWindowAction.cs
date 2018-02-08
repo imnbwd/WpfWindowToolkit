@@ -1,7 +1,6 @@
 ﻿using PraiseHim.Rejoice.WpfWindowToolkit.Base;
 using PraiseHim.Rejoice.WpfWindowToolkit.Utilities;
 using System;
-using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
@@ -149,27 +148,8 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
 
             var closeEventHanlder = new EventHandler((s, e) =>
                 {
-                    object returnValue = null;
                     // check if need to process the return value
-                    if (window.DataContext != null)
-                    {
-                        if (window.DataContext is IWindowReturnValue)
-                        {
-                            returnValue = (window.DataContext as IWindowReturnValue).ReturnValue;
-                        }
-                        else
-                        {
-                            // generic interface
-                            var geTypeInterface = window.DataContext.GetType().GetInterfaces()
-                                .Where(t => t.IsGenericType)
-                                .FirstOrDefault(t => t.GetGenericTypeDefinition() == typeof(IWindowReturnValue<>));
-
-                            if (geTypeInterface != null)
-                            {
-                                returnValue = geTypeInterface.GetProperty("ReturnValue")?.GetValue(window.DataContext, null);
-                            }
-                        }
-                    }
+                    object returnValue = window.TryGetReturnValue();
 
                     // first execute CommandAfterClose command, then invoke MethodAfterClose method (if they are set)
                     CommandAfterClose?.Execute(returnValue);
@@ -196,6 +176,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
                     }
                 });
 
+            window.Closed -= closeEventHanlder;
             window.Closed += closeEventHanlder;
 
             if (window.DataContext != null && window.DataContext is ViewModelRootBase)
@@ -203,10 +184,6 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
                 // set the data to viewmodel
                 (window.DataContext as ViewModelRootBase).Data = Parameter;
             }
-            //else
-            //{
-            //    window.Tag = Parameter;
-            //}
 
             if (IsModal)
             {

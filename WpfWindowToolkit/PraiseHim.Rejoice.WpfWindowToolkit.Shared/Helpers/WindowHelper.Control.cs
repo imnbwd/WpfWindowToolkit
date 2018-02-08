@@ -67,6 +67,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
 
                 if (!window.IsLoaded)
                 {
+                    window.Loaded -= loadedHandler;
                     window.Loaded += loadedHandler;
                 }
                 else
@@ -134,6 +135,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
 
                 if (!window.IsLoaded)
                 {
+                    window.Loaded -= loadedHandler;
                     window.Loaded += loadedHandler;
                 }
                 else
