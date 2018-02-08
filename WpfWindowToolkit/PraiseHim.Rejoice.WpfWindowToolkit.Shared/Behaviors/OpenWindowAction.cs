@@ -1,7 +1,7 @@
 ﻿using PraiseHim.Rejoice.WpfWindowToolkit.Base;
 using PraiseHim.Rejoice.WpfWindowToolkit.Utilities;
 using System;
-using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
@@ -149,27 +149,48 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
 
             var closeEventHanlder = new EventHandler((s, e) =>
                 {
+                    object returnValue = null;
+                    // check if need to process the return value
+                    if (window.DataContext != null)
+                    {
+                        if (window.DataContext is IWindowReturnValue)
+                        {
+                        }
+                        else
+                        {
+                            // generic interface
+                            var geTypeInterface = window.DataContext.GetType().GetInterfaces()
+                                .Where(t => t.IsGenericType)
+                                .FirstOrDefault(t => t.GetGenericTypeDefinition() == typeof(IWindowReturnValue<>));
+
+                            if (geTypeInterface != null)
+                            {
+                                returnValue = geTypeInterface.GetProperty("ReturnValue")?.GetValue(window.DataContext, null);
+                            }
+                        }
+                    }
+
                     // first execute CommandAfterClose command, then invoke MethodAfterClose method (if they are set)
-                    CommandAfterClose?.Execute(null);
+                    CommandAfterClose?.Execute(returnValue);
 
                     if (!string.IsNullOrWhiteSpace(MethodAfterClose))
                     {
                         MethodInfo method = null;
 
                         // if MethodOfTargetObject is not set, then the DataContext of AssociatedObject will be used as such a purpose
-                        if (MethodOfTargetObject == null && MethodOfTargetObject is FrameworkElement)
+                        if (MethodOfTargetObject == null)
                         {
-                            var dataContext = (MethodOfTargetObject as FrameworkElement).DataContext;
+                            var dataContext = (AssociatedObject as FrameworkElement).DataContext;
                             if (dataContext != null)
                             {
                                 method = dataContext.GetType().GetMethod(MethodAfterClose, BindingFlags.Public | BindingFlags.Instance);
-                                method?.Invoke(dataContext, null);
+                                method?.Invoke(dataContext, returnValue != null ? new object[] { returnValue } : null);
                             }
                         }
                         else
                         {
                             method = MethodOfTargetObject?.GetType().GetMethod(MethodAfterClose, BindingFlags.Public | BindingFlags.Instance);
-                            method?.Invoke(MethodOfTargetObject, null);
+                            method?.Invoke(MethodOfTargetObject, returnValue != null ? new object[] { returnValue } : null);
                         }
                     }
                 });
@@ -185,7 +206,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             //{
             //    window.Tag = Parameter;
             //}
-            
+
             if (IsModal)
             {
                 // set the owner
@@ -197,7 +218,6 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             {
                 window.Show();
             }
-
         }
     }
 }
