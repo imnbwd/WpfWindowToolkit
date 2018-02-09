@@ -689,6 +689,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.AppWindow.TryGetReturnValue(System.Windows.Window)">
+            <summary>
+            Get the value of the ReturnValue property from the specified window's data context, see <see cref="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IWindowReturnValue"/> for more info.
+            </summary>
+            <param name="window"></param>
+            <returns></returns>
+        </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.WindowController">
             <summary>
             WindowController
