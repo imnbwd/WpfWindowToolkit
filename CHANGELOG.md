@@ -1,5 +1,5 @@
 # Change log
-## 2.1.0
+## 2.2.0
 - [x] Add two actions
 - [x] Minor improvements for easy of use 
 
