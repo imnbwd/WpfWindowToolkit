@@ -1,6 +1,8 @@
 ﻿using PraiseHim.Rejoice.WpfWindowToolkit.Base;
 using System;
+using System.Text;
 using System.Windows;
+using System.Windows.Input;
 using WpfWindowToolkit.Demo.Models;
 using WpfWindowToolkit.Demo.Views;
 
@@ -13,7 +15,6 @@ namespace WpfWindowToolkit.Demo.ViewModels
         public MainViewModel()
         {
             CurrentFriend = new Friend { Id = "1", Name = "Jim", Email = "jim@xx.com", BirthDate = new DateTime(1990, 2, 4), IsDeveloper = true };
-
 
             WhenWindowClosedCommand = new RelayCommand(WhenWindowClosed);
             PreCheck = new Func<bool>(() =>
@@ -64,5 +65,21 @@ namespace WpfWindowToolkit.Demo.ViewModels
         {
             MessageBox.Show("Window1 closed");
         }
+
+        #region Show event argument
+
+        public ICommand ShowEventArgumentCommand => new RelayCommand<RoutedEventArgs>(ShowEventArgument);
+
+        public void ShowEventArgument(RoutedEventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Event argument:");
+            sb.AppendLine($"\tType: \t{e.GetType().Name}");
+            sb.AppendLine($"\tSource: \t{e.Source}");
+            sb.AppendLine($"\tOriginalSource: \t{e.OriginalSource}");
+            MessageBox.Show(sb.ToString());
+        }
+
+        #endregion Show event argument
     }
 }

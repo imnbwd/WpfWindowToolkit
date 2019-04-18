@@ -7,7 +7,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
     /// <summary>
     /// An action to invoke a <see cref="ICommand"/>.
     /// </summary>
-    internal class InvokeCommandAction : TriggerAction<FrameworkElement>
+    public class InvokeCommandAction : TriggerAction<FrameworkElement>
     {
         public static readonly DependencyProperty CommandParameterProperty =
             DependencyProperty.Register("CommandParameter", typeof(object), typeof(InvokeCommandAction), new PropertyMetadata(null));

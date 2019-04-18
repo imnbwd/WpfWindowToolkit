@@ -1,5 +1,6 @@
 ﻿using PraiseHim.Rejoice.WpfWindowToolkit.Extensions;
 using PraiseHim.Rejoice.WpfWindowToolkit.Utilities;
+using System;
 using System.Windows;
 
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
@@ -146,5 +147,74 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
         }
 
         #endregion CanMinimize
+
+        #region ControlAction        
+        public static readonly DependencyProperty ControlActionProperty =
+            DependencyProperty.RegisterAttached("ControlAction", typeof(WindowControlAction), typeof(WindowHelper), new PropertyMetadata(WindowControlAction.None, OnControlActionChanged));
+
+        public static WindowControlAction GetControlAction(DependencyObject obj)
+        {
+            return (WindowControlAction)obj.GetValue(ControlActionProperty);
+        }
+
+        public static void SetControlAction(DependencyObject obj, WindowControlAction value)
+        {
+            obj.SetValue(ControlActionProperty, value);
+        }
+
+        private static void OnControlActionChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var eventInfo = d.GetType().GetEvent("Click");
+            if (eventInfo == null)
+            {
+                throw new InvalidOperationException("Could find click event from the attached control");
+            }
+
+            Window currentWindow = d.GetParent<Window>();
+            if (currentWindow == null)
+            {
+                throw new InvalidOperationException("Could not find the target window");
+            }
+
+            var newValue = (WindowControlAction)e.NewValue;
+
+            RoutedEventHandler clickEventHandler = null;
+            switch (newValue)
+            {
+                case WindowControlAction.Close:
+                    clickEventHandler = new RoutedEventHandler((s, arg) =>
+                    {
+                        currentWindow.Close();
+                    });
+
+                    eventInfo.RemoveEventHandler(d, clickEventHandler);
+                    eventInfo.AddEventHandler(d, clickEventHandler);
+                    break;
+
+                case WindowControlAction.Minimize:
+                    clickEventHandler = new RoutedEventHandler((s, arg) =>
+                    {
+                        currentWindow.WindowState = WindowState.Minimized;
+                    });
+
+                    eventInfo.RemoveEventHandler(d, clickEventHandler);
+                    eventInfo.AddEventHandler(d, clickEventHandler);
+                    break;
+
+                case WindowControlAction.NormalOrMaximize:
+                    clickEventHandler = new RoutedEventHandler((s, arg) =>
+                    {
+                        currentWindow.WindowState = currentWindow.WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
+                    });
+
+                    eventInfo.RemoveEventHandler(d, clickEventHandler);
+                    eventInfo.AddEventHandler(d, clickEventHandler);
+                    break;
+
+                case WindowControlAction.None:
+                    break;
+            }
+        }
+        #endregion
     }
 }

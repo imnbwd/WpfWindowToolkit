@@ -186,6 +186,31 @@
             Get or set the data that passed to this view model
             </summary>
         </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CallMethodAction">
+            <summary>
+            An action that calls a method on a specified object when invoked.
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CallMethodAction.MethodNameProperty">
+            <summary>
+            Identifies the <seealso cref="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CallMethodAction.MethodName"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CallMethodAction.TargetObjectProperty">
+            <summary>
+            Identifies the <seealso cref="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CallMethodAction.TargetObject"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CallMethodAction.MethodName">
+            <summary>
+            Gets or sets the name of the method to invoke. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CallMethodAction.TargetObject">
+            <summary>
+            Gets or sets the object that exposes the method of interest. This is a dependency property.
+            </summary>
+        </member>
         <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.EnableWindowCloseBehavior">
             <summary>
             A behavior that enables to close a window in its view model, that view model should implement <see cref="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IClosable"/> interface, and invoke CloseWindow action in a proper place.
@@ -412,9 +437,9 @@
             ParameterProperty
             </summary>
         </member>
-        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.PreCheckFuncBeforeOpenProperty">
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.ChenckingFuncBeforeOpenningProperty">
             <summary>
-            PreCheckFuncBeforeOpenProperty
+            ChenckingFuncBeforeOpenning
             </summary>
         </member>
         <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.WindowTypeProperty">
@@ -425,6 +450,16 @@
         <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.CommandAfterClose">
             <summary>
             Get or set the command to execute when the target window is closed
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.CommandBeforeOpen">
+            <summary>
+            Get or set the command to execute before the target window opens
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.CommandBeforeOpenProperty">
+            <summary>
+            CommandBeforeOpenProperty
             </summary>
         </member>
         <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.IsModal">
@@ -447,7 +482,7 @@
             The parameter need to pass to the new window
             </summary>
         </member>
-        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.PreCheckFuncBeforeOpen">
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.ChenckingFuncBeforeOpenning">
             <summary>
             Get or set a function that return a boolean value indicating whether the target window can be openned or not
             </summary>

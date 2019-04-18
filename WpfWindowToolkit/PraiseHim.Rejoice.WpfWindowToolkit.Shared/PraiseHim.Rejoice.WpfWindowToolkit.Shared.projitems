@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Base\OpenWindowInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\ViewModelBaseEx.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\ViewModelRootBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\CallMethodAction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviors\EnableWindowCloseBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviors\CloseTabItemAction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behaviors\CloseWindowAction.cs" />
@@ -31,6 +32,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\WindowHelper.OpenWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\WindowHelper.Control.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\AppWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\WindowControlAction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\WindowController.cs" />
   </ItemGroup>
 </Project>

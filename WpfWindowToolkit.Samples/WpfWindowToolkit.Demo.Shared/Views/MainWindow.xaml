@@ -2,10 +2,10 @@
     x:Class="WpfWindowToolkit.Demo.Views.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:behaviors="clr-namespace:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors;assembly=WpfWindowToolkit"
+    xmlns:behaviors="http://wpfwindowtoolkit.org/behaviors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
-    xmlns:helpers="clr-namespace:PraiseHim.Rejoice.WpfWindowToolkit.Helpers;assembly=WpfWindowToolkit"
+    xmlns:helpers="http://wpfwindowtoolkit.org/helpers"
     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:local="clr-namespace:WpfWindowToolkit.Demo.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -96,8 +96,8 @@
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Click">
                                         <behaviors:OpenWindowAction
+                                            ChenckingFuncBeforeOpenning="{Binding PreCheck}"
                                             Parameter="WPF (action)"
-                                            PreCheckFuncBeforeOpen="{Binding PreCheck}"
                                             WindowType="{x:Type local:Window1}" />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
@@ -158,6 +158,20 @@
                     <GroupBox Margin="0,5,0,0" Header="Other">
                         <StackPanel Margin="5">
                             <Button helpers:WindowHelper.OpenWindowType="{x:Type local:StateControlTestWindow}" Content="Window state controll test" />
+                            <Button Margin="0,5,0,0" Content="Get event argument(InvokeCommandAction)">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <behaviors:InvokeCommandAction Command="{Binding ShowEventArgumentCommand}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Button>
+                            <Button Margin="0,5,0,0" Content="Get event argument(CallMethodAction)">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <behaviors:CallMethodAction MethodName="ShowEventArgument" TargetObject="{Binding}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Button>
                         </StackPanel>
                     </GroupBox>
                 </StackPanel>

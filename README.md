@@ -19,7 +19,18 @@ A wpf windows toolkit for window operations, including some behaviors, useful cl
 Install-Package WpfWindowToolkit
 ```
 
+## Namespace
+
+To use `WpfWindowToolkit` in your application you need to add the following namespaces to your Xaml files.
+
+```XAML
+xmlns:behaviors="http://wpfwindowtoolkit.org/behaviors"
+xmlns:helpers="http://wpfwindowtoolkit.org/helpers"
+```
+
+
 ## How to
+
 
 ### Open a window
 
@@ -183,6 +194,46 @@ At a proper place, you could invoke `CloseWindow` action to close the window:
 ```C#
    CloseWindow?.Invoke();  // or just CloseWindow();
 ```
+
+### Get event parameter in view model
+It's essential to get event parameter for some operations, drag and drop , for instance, we can get the dragging data by accessing the event parameter of `DragOver` or `Drop` event, which type is `DragEventArgs`. 
+
+To get event parameter in view model, you can use `InvokeCommandAction` or `CallMethodAction`, both of their names are same as the corresponding action in Blend Behaviors. While, the difference is these two action can invoke a command or a method with the parameter of the event which invokes them by a `EventTrigger`.
+
+```XAML
+<Button Content="Get event argument(InvokeCommandAction)">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Click">
+            <behaviors:InvokeCommandAction Command="{Binding ShowEventArgumentCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+</Button>
+
+<Button Content="Get event argument(CallMethodAction)">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Click">
+            <behaviors:CallMethodAction MethodName="ShowEventArgument" TargetObject="{Binding}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+</Button>
+```
+
+```C#
+public ICommand ShowEventArgumentCommand => new RelayCommand<RoutedEventArgs>(ShowEventArgument);
+
+public void ShowEventArgument(RoutedEventArgs e)
+{
+    ...
+}
+```
+
+Tips: 
+
+> For `InvokeCommandAction`, you can still set a value for `CommandParameter` property for your purpose, without explicitly setting value for this property, event parameter will be used as the parameter in this action.
+
+> For `CallMethodAction`, the specified method should contain either no parameter or one parameter with the event parameter type.
+
+
 
 ## More info
 

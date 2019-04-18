@@ -48,10 +48,10 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
                                     DependencyProperty.Register("Parameter", typeof(object), typeof(OpenWindowAction), new PropertyMetadata(null));
 
         /// <summary>
-        /// PreCheckFuncBeforeOpenProperty
+        /// ChenckingFuncBeforeOpenning
         /// </summary>
-        public static readonly DependencyProperty PreCheckFuncBeforeOpenProperty =
-            DependencyProperty.Register("PreCheckFuncBeforeOpen", typeof(Func<bool>), typeof(OpenWindowAction), new PropertyMetadata(null));
+        public static readonly DependencyProperty ChenckingFuncBeforeOpenningProperty =
+            DependencyProperty.Register("ChenckingFuncBeforeOpenning", typeof(Func<bool>), typeof(OpenWindowAction), new PropertyMetadata(null));
 
         /// <summary>
         /// WindowTypeProperty
@@ -67,6 +67,21 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             get { return (ICommand)GetValue(CommandAfterCloseProperty); }
             set { SetValue(CommandAfterCloseProperty, value); }
         }
+
+        /// <summary>
+        /// Get or set the command to execute before the target window opens
+        /// </summary>
+        public ICommand CommandBeforeOpen
+        {
+            get { return (ICommand)GetValue(CommandBeforeOpenProperty); }
+            set { SetValue(CommandBeforeOpenProperty, value); }
+        }
+
+        /// <summary>
+        /// CommandBeforeOpenProperty
+        /// </summary>
+        public static readonly DependencyProperty CommandBeforeOpenProperty =
+            DependencyProperty.Register("CommandBeforeOpen", typeof(ICommand), typeof(OpenWindowAction), new PropertyMetadata(null));
 
         /// <summary>
         /// Specify whether the windows is modal or not
@@ -107,10 +122,10 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
         /// <summary>
         /// Get or set a function that return a boolean value indicating whether the target window can be openned or not
         /// </summary>
-        public Func<bool> PreCheckFuncBeforeOpen
+        public Func<bool> ChenckingFuncBeforeOpenning
         {
-            get { return (Func<bool>)GetValue(PreCheckFuncBeforeOpenProperty); }
-            set { SetValue(PreCheckFuncBeforeOpenProperty, value); }
+            get { return (Func<bool>)GetValue(ChenckingFuncBeforeOpenningProperty); }
+            set { SetValue(ChenckingFuncBeforeOpenningProperty, value); }
         }
 
         /// <summary>
@@ -128,9 +143,14 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
         /// <param name="parameter"></param>
         protected override void Invoke(object parameter)
         {
-            if (PreCheckFuncBeforeOpen != null && !PreCheckFuncBeforeOpen())
+            if (ChenckingFuncBeforeOpenning != null && !ChenckingFuncBeforeOpenning())
             {
                 return;
+            }
+
+            if (CommandBeforeOpen != null)
+            {
+                CommandBeforeOpen.Execute(null);
             }
 
             Window window = null;
