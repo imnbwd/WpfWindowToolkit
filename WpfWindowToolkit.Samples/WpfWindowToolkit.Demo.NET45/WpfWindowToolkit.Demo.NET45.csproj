@@ -33,16 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libs\Microsoft.Expression.Interactions\NET45\Microsoft.Expression.Interactions.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Lib\NET45\System.Windows.Interactivity.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -85,10 +77,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit.NET45.csproj">
-      <Project>{6a84295c-8934-4c99-a0a2-45785d510392}</Project>
-      <Name>PraiseHim.Rejoice.WpfWindowToolkit.NET45</Name>
+    <ProjectReference Include="..\..\WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit.csproj">
+      <Project>{6510618a-df8f-449d-9266-32dfff5002cd}</Project>
+      <Name>PraiseHim.Rejoice.WpfWindowToolkit</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf">
+      <Version>1.1.3</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="..\WpfWindowToolkit.Demo.Shared\WpfWindowToolkit.Demo.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

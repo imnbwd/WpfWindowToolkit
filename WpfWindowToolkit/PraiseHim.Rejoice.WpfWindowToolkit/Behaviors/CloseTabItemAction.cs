@@ -1,17 +1,17 @@
-﻿using System;
+﻿using Microsoft.Xaml.Behaviors;
+using System;
 using System.Collections;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Interactivity;
 
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
 {
     /// <summary>
-    /// An action to close the specific TabItem of the specific TabControl
+    /// An action to close the specific TabItem of the specific TabControl.
     /// Source: stackoverflow
     /// </summary>
-    public class CloseTabItemAction : TriggerAction<DependencyObject>
+    public class CloseTabItemAction : TriggerAction<FrameworkElement>
     {
         /// <summary>
         /// ClosingCheckFuncProperty
@@ -71,7 +71,6 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
                 return;
             }
 
-            // TODO Raise a closing event to cancel this action
             if (ClosingCheckFunc != null && !ClosingCheckFunc())
             {
                 return;

@@ -1,13 +1,13 @@
-﻿using PraiseHim.Rejoice.WpfWindowToolkit.Extensions;
+﻿using Microsoft.Xaml.Behaviors;
+using PraiseHim.Rejoice.WpfWindowToolkit.Extensions;
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Interactivity;
 
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
 {
     /// <summary>
-    /// An action that makes the specific ScrollViewer scrolls to the target element vertically
+    /// An action that makes the specific ScrollViewer scrolls to the target element vertically.
     /// </summary>
     public class ScrollToTargetAction : TriggerAction<FrameworkElement>
     {

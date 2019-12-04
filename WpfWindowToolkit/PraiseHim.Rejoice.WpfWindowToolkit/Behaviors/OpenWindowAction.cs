@@ -1,10 +1,10 @@
-﻿using PraiseHim.Rejoice.WpfWindowToolkit.Base;
+﻿using Microsoft.Xaml.Behaviors;
+using PraiseHim.Rejoice.WpfWindowToolkit.Base;
+using PraiseHim.Rejoice.WpfWindowToolkit.Utilities;
 using System;
-using System.Diagnostics;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Interactivity;
 
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
 {
@@ -48,10 +48,10 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
                                     DependencyProperty.Register("Parameter", typeof(object), typeof(OpenWindowAction), new PropertyMetadata(null));
 
         /// <summary>
-        /// PreCheckFuncBeforeOpenProperty
+        /// ChenckingFuncBeforeOpenning
         /// </summary>
-        public static readonly DependencyProperty PreCheckFuncBeforeOpenProperty =
-            DependencyProperty.Register("PreCheckFuncBeforeOpen", typeof(Func<bool>), typeof(OpenWindowAction), new PropertyMetadata(null));
+        public static readonly DependencyProperty ChenckingFuncBeforeOpenningProperty =
+            DependencyProperty.Register("ChenckingFuncBeforeOpenning", typeof(Func<bool>), typeof(OpenWindowAction), new PropertyMetadata(null));
 
         /// <summary>
         /// WindowTypeProperty
@@ -67,6 +67,21 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             get { return (ICommand)GetValue(CommandAfterCloseProperty); }
             set { SetValue(CommandAfterCloseProperty, value); }
         }
+
+        /// <summary>
+        /// Get or set the command to execute before the target window opens
+        /// </summary>
+        public ICommand CommandBeforeOpen
+        {
+            get { return (ICommand)GetValue(CommandBeforeOpenProperty); }
+            set { SetValue(CommandBeforeOpenProperty, value); }
+        }
+
+        /// <summary>
+        /// CommandBeforeOpenProperty
+        /// </summary>
+        public static readonly DependencyProperty CommandBeforeOpenProperty =
+            DependencyProperty.Register("CommandBeforeOpen", typeof(ICommand), typeof(OpenWindowAction), new PropertyMetadata(null));
 
         /// <summary>
         /// Specify whether the windows is modal or not
@@ -107,10 +122,10 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
         /// <summary>
         /// Get or set a function that return a boolean value indicating whether the target window can be openned or not
         /// </summary>
-        public Func<bool> PreCheckFuncBeforeOpen
+        public Func<bool> ChenckingFuncBeforeOpenning
         {
-            get { return (Func<bool>)GetValue(PreCheckFuncBeforeOpenProperty); }
-            set { SetValue(PreCheckFuncBeforeOpenProperty, value); }
+            get { return (Func<bool>)GetValue(ChenckingFuncBeforeOpenningProperty); }
+            set { SetValue(ChenckingFuncBeforeOpenningProperty, value); }
         }
 
         /// <summary>
@@ -128,68 +143,78 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
         /// <param name="parameter"></param>
         protected override void Invoke(object parameter)
         {
-            if (PreCheckFuncBeforeOpen != null && !PreCheckFuncBeforeOpen())
+            if (ChenckingFuncBeforeOpenning != null && !ChenckingFuncBeforeOpenning())
             {
                 return;
             }
 
+            if (CommandBeforeOpen != null)
+            {
+                CommandBeforeOpen.Execute(null);
+            }
+
+            Window window = null;
+            object windowObj = null;
+
             try
             {
-                var windowObj = Activator.CreateInstance(WindowType);
+                windowObj = Activator.CreateInstance(WindowType);
+                window = windowObj as Window;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Cannot create a window with the given type", ex);
+            }
 
-                var window = windowObj as Window;
-
-                var closeEventHanlder = new EventHandler((s, e) =>
+            var closeEventHanlder = new EventHandler((s, e) =>
                 {
+                    // check if need to process the return value
+                    object returnValue = window.TryGetReturnValue();
+
                     // first execute CommandAfterClose command, then invoke MethodAfterClose method (if they are set)
-                    CommandAfterClose?.Execute(null);
+                    CommandAfterClose?.Execute(returnValue);
 
                     if (!string.IsNullOrWhiteSpace(MethodAfterClose))
                     {
                         MethodInfo method = null;
 
                         // if MethodOfTargetObject is not set, then the DataContext of AssociatedObject will be used as such a purpose
-                        if (MethodOfTargetObject == null && MethodOfTargetObject is FrameworkElement)
+                        if (MethodOfTargetObject == null)
                         {
-                            var dataContext = (MethodOfTargetObject as FrameworkElement).DataContext;
+                            var dataContext = (AssociatedObject as FrameworkElement).DataContext;
                             if (dataContext != null)
                             {
                                 method = dataContext.GetType().GetMethod(MethodAfterClose, BindingFlags.Public | BindingFlags.Instance);
-                                method?.Invoke(dataContext, null);
+                                method?.Invoke(dataContext, returnValue != null ? new object[] { returnValue } : null);
                             }
                         }
                         else
                         {
                             method = MethodOfTargetObject?.GetType().GetMethod(MethodAfterClose, BindingFlags.Public | BindingFlags.Instance);
-                            method?.Invoke(MethodOfTargetObject, null);
+                            method?.Invoke(MethodOfTargetObject, returnValue != null ? new object[] { returnValue } : null);
                         }
                     }
                 });
 
-                window.Closed += closeEventHanlder;
+            window.Closed -= closeEventHanlder;
+            window.Closed += closeEventHanlder;
 
-                if (window.DataContext != null && window.DataContext is ViewModelRootBase)
-                {
-                    // set the data to viewmodel
-                    (window.DataContext as ViewModelRootBase).Data = Parameter;
-                }
-                else
-                {
-                    window.Tag = Parameter;
-                }
-
-                if (IsModal)
-                {
-                    window.ShowDialog();
-                }
-                else
-                {
-                    window.Show();
-                }
-            }
-            catch (Exception ex)
+            if (window.DataContext != null && window.DataContext is ViewModelRootBase)
             {
-                Trace.WriteLine(ex);
+                // set the data to viewmodel
+                (window.DataContext as ViewModelRootBase).Data = Parameter;
+            }
+
+            if (IsModal)
+            {
+                // set the owner
+                window.Owner = AppWindow.GetCurrentActivatedWindow();
+
+                window.ShowDialog();
+            }
+            else
+            {
+                window.Show();
             }
         }
     }

@@ -1,0 +1,823 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WpfWindowToolkit</name>
+    </assembly>
+    <members>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.BindableBase">
+            <summary>
+            A class implemented the interface INotifyPropertyChanged.
+            </summary>
+        </member>
+        <member name="E:PraiseHim.Rejoice.WpfWindowToolkit.Base.BindableBase.PropertyChanged">
+            <summary>
+            PropertyChanged
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.BindableBase.OnPropertyChanged(System.String)">
+            <summary>
+            Notifies listeners that a property value has changed.
+            </summary>
+            <param name="propertyName">
+            Name of the property used to notify listeners.  This
+            value is optional and can be provided automatically when invoked from compilers
+            that support <see cref="T:System.Runtime.CompilerServices.CallerMemberNameAttribute" />.
+            </param>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.BindableBase.Set``1(``0@,``0,System.String)">
+            <summary>
+            Checks if a property already matches a desired value.  Sets the property and
+            notifies listeners only when necessary.
+            </summary>
+            <typeparam name="T">Type of the property.</typeparam>
+            <param name="storage">Reference to a property with both getter and setter.</param>
+            <param name="value">Desired value for the property.</param>
+            <param name="propertyName">
+            Name of the property used to notify listeners.  This
+            value is optional and can be provided automatically when invoked from compilers that
+            support CallerMemberName.
+            </param>
+            <returns>
+            True if the value was changed, false if the existing value matched the
+            desired value.
+            </returns>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IClosable">
+            <summary>
+            Provides action to close a Window form its view model. In order to do so, that view modle should implement this interface.
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.IClosable.CloseWindow">
+            <summary>
+            Get or set CloseWindow action, this action should be a method that could close the corresponding Window.
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IOpenWindow">
+            <summary>
+            Provides property and method for opening a new Window.
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.IOpenWindow.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo)">
+            <summary>
+            Open a window with the specific window info.
+            </summary>
+            <param name="openWindowInfo">The info of the window to be opened</param>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IOpenWindow2`1">
+            <summary>
+            Provides property and method for opening a new Window and handling the value.
+            </summary>
+            <typeparam name="TReturnValue">The data type of the return value</typeparam>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.IOpenWindow2`1.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo,System.Action{`0})">
+            <summary>
+            Open a window with the specific window info, and handle the return value when the target window closed.
+            </summary>
+            <param name="openWindowInfo">The info of the window to be opened</param>
+            <param name="action">The <see cref="T:System.Action"/> to handle the return value</param>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IOpenWindow2">
+            <summary>
+            Provides property and method for opening a new Window and handling the value.
+            </summary>    
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.IOpenWindow2.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo,System.Action{System.Object})">
+            <summary>
+            Open a window with the specific window info, and handle the return value when the target window closed.
+            </summary>
+            <param name="openWindowInfo">The info of the window to be opened</param>
+            <param name="action">The <see cref="T:System.Action"/> to handle the return value</param>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IView">
+            <summary>
+            Provides methods for handling what to do after a view loaded.
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.IView.ViewLoaded">
+            <summary>
+            View loaded.
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IView2">
+            <summary>
+            Provides methods for handling what to do after a view loaded and unloaded.
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.IView2.ViewUnloaded">
+            <summary>
+            View unloaded.
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IWindowReturnValue">
+            <summary>
+            Supports returning a value after a window closed.
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.IWindowReturnValue.ReturnValue">
+            <summary>
+            Get or set the value to be returned.
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IWindowReturnValue`1">
+            <summary>
+            Supports returning a value after a window closed.
+            </summary>
+            <typeparam name="T">The data type of return value</typeparam>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.IWindowReturnValue`1.ReturnValue">
+            <summary>
+            Get or set the value to be returned.
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo">
+            <summary>
+            Identifies the info for a window to be opened.
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo.IsModal">
+            <summary>
+            Get or set whether the windows is modal or not. The defalut value is true.
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo.Parameter">
+            <summary>
+            Get or set the parameter to pass to the new window.
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo.WindowType">
+            <summary>
+            Get or set the type of the window to be opened.
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseEx">
+            <summary>
+            Provides the way to open a window.
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseEx.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo)">
+            <summary>
+            Open a window with the specific window info.
+            </summary>
+            <param name="openWindowInfo">The info of the window to be opened.</param>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseEx.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo,System.Action{System.Object})">
+            <summary>
+            Open a window with the specific window info, and handle the return value when the target window closed.
+            </summary>
+            <param name="openWindowInfo">The info of the window to be opened.</param>
+            <param name="action">The <see cref="T:System.Action"/> to handle the return value.</param>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseEx`1">
+            <summary>
+            Provides the way to open a window and return a value.
+            </summary>
+            <typeparam name="TReturnValue">The data type of the value to be returned.</typeparam>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseEx`1.ShowWindow(PraiseHim.Rejoice.WpfWindowToolkit.Base.OpenWindowInfo,System.Action{`0})">
+            <summary>
+            Open a window with the specific window info, and handle the return value when the target window closed.
+            </summary>
+            <param name="openWindowInfo">The info of the window to be opened</param>
+            <param name="action">The <see cref="T:System.Action"/> to handle the return value</param>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseData`1">
+            <summary>
+            A view model base class, could receive data with the given data type.
+            </summary>
+            <typeparam name="T">The parameter data type.</typeparam>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseData`1.Data">
+            <summary>
+            Get or set the data that passed to this view model
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseData`1.InternalData">
+            <summary>
+            Get or set the data with a specifc type
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelRootBase">
+            <summary>
+            ViewModelRootBase, inherits from <see cref="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.BindableBase"/> which implements <see cref="T:System.ComponentModel.INotifyPropertyChanged"/>, can be the base class of view model.
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelRootBase.Data">
+            <summary>
+            Get or set the data that passed to this view model
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CallMethodAction">
+            <summary>
+            An action that calls a method on a specified object when invoked.
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CallMethodAction.MethodNameProperty">
+            <summary>
+            Identifies the <seealso cref="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CallMethodAction.MethodName"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CallMethodAction.TargetObjectProperty">
+            <summary>
+            Identifies the <seealso cref="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CallMethodAction.TargetObject"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CallMethodAction.MethodName">
+            <summary>
+            Gets or sets the name of the method to invoke. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CallMethodAction.TargetObject">
+            <summary>
+            Gets or sets the object that exposes the method of interest. This is a dependency property.
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseTabItemAction">
+            <summary>
+            An action to close the specific TabItem of the specific TabControl.
+            Source: stackoverflow
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseTabItemAction.ClosingCheckFuncProperty">
+            <summary>
+            ClosingCheckFuncProperty
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseTabItemAction.TabControlProperty">
+            <summary>
+            TabControlProperty
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseTabItemAction.TabItemProperty">
+            <summary>
+            TabItemProperty
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseTabItemAction.ClosingCheckFunc">
+            <summary>
+            Get or set a function that returns a boolean value indicating whether the <see cref="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseTabItemAction.TabItem"/> can be closed or not
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseTabItemAction.TabControl">
+            <summary>
+            Get or set the <see cref="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseTabItemAction.TabControl"/> that possesses the target TabItem
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseTabItemAction.TabItem">
+            <summary>
+            Get or set the <see cref="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseTabItemAction.TabItem"/> to be closed
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseTabItemAction.Invoke(System.Object)">
+            <summary>
+            Override Invoke method
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowAction">
+            <summary>
+            An action to close a Window.
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowAction.ClosingCheckFuncProperty">
+            <summary>
+            ClosingCheckFuncProperty
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowAction.ClosingCheckFunc">
+            <summary>
+            Get or set a function that returns a boolean value indicating whether the <see cref="T:System.Windows.Window"/> can be closed or not
+            </summary>
+            <remarks>If the result of function is true, the window can be closed, otherwise, cannot</remarks>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowAction.Invoke(System.Object)">
+            <summary>
+            Override Invoke method
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowBehavior">
+            <summary>
+            A behavior for <see cref="T:System.Windows.Window"/> that can handle the closing event
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowBehavior.ClosingCheckFuncProperty">
+            <summary>
+            ClosingCheckFunc dp
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowBehavior.ClosingCheckFunc">
+            <summary>
+            Get or set a function that returns a boolean value indicating whether the <see cref="T:System.Windows.Window"/> can be closed or not
+            </summary>
+            <remarks>If the result of function is true, the window can be closed, otherwise, cannot</remarks>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowBehavior.OnAttached">
+            <summary>
+            When attached
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.CloseWindowBehavior.OnDetaching">
+            <summary>
+            When detaching
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ClosingWindowBehavior">
+            <summary>
+            A behavior for <see cref="T:System.Windows.Window"/> that can handle the closing event.
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ClosingWindowBehavior.ClosingCheckFuncProperty">
+            <summary>
+            ClosingCheckFunc dp
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ClosingWindowBehavior.ClosingCheckFunc">
+            <summary>
+            Get or set a function that returns a boolean value indicating whether the <see cref="T:System.Windows.Window"/> can be closed or not.
+            </summary>
+            <remarks>If the result of function is true, the window can be closed, otherwise, cannot.</remarks>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ClosingWindowBehavior.OnAttached">
+            <summary>
+            When attached
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ClosingWindowBehavior.OnDetaching">
+            <summary>
+            When detaching
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.EnableWindowCloseBehavior">
+            <summary>
+            A behavior that enables to close a window in its view model, that view model should implement <see cref="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IClosable"/> interface, and invoke CloseWindow action in a proper place.
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.EnableWindowCloseBehavior.OnAttached">
+            <summary>
+            When attached
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.EnableWindowCloseBehavior.OnDetaching">
+            <summary>
+            When detaching
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.EnableWindowCloseBehavior.AssignCloseWindowAction">
+            <summary>
+            Assign close action for CloseWindow action.
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.InvokeCommandAction">
+            <summary>
+            An action to invoke a <see cref="T:System.Windows.Input.ICommand"/>.
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.InvokeCommandAction.Command">
+            <summary>
+            Get or set the ICommand
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.InvokeCommandAction.CommandParameter">
+            <summary>
+            Get or set the parameter for the command
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.InvokeCommandAction.Invoke(System.Object)">
+            <summary>
+            Override Invoke method
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenTargetInTabControlAction">
+            <summary>
+            An action that can show a control (mostly User Control) on the target TabControl as a new TabItem.
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenTargetInTabControlAction.AllowMultiInstanceProperty">
+            <summary>
+            AllowMultiInstanceProperty
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenTargetInTabControlAction.TabItemHeaderTemplateProperty">
+            <summary>
+            TabItemHeaderTemplateProperty
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenTargetInTabControlAction.TargetTabControlProperty">
+            <summary>
+            TargetTabControlProperty
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenTargetInTabControlAction.TargetTitleProperty">
+            <summary>
+            TargetTitleProperty
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenTargetInTabControlAction.TargetTypeProperty">
+            <summary>
+            TargetTypeProperty
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenTargetInTabControlAction.AllowMultiInstance">
+            <summary>
+            Allow multi instance, the defalut value is true
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenTargetInTabControlAction.TabItemHeaderTemplate">
+            <summary>
+            The header template of the the new tab item
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenTargetInTabControlAction.TargetTabControl">
+            <summary>
+            The target TabControl
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenTargetInTabControlAction.TargetTitle">
+            <summary>
+            The title of the new TabItem
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenTargetInTabControlAction.TargetType">
+            <summary>
+            The type of the control that would be added on the target TabControl
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenTargetInTabControlAction.Invoke(System.Object)">
+            <summary>
+            Overrides Invoke method
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction">
+            <summary>
+            Open a specified window, parameter can also be taken to pass to the new Window.
+            </summary>
+            <remarks>
+            Known issue:
+            1) When using this Action in MenuItem, it cannot invoke the CommandAfterClose command and MethodAfterClose
+            </remarks>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.CommandAfterCloseProperty">
+            <summary>
+            CommandAfterCloseProperty
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.IsModalProperty">
+            <summary>
+            IsModalProperty
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.MethodAfterCloseProperty">
+            <summary>
+            MethodAfterCloseProperty
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.MethodOfTargetObjectProperty">
+            <summary>
+            MethodOfTargetObjectProperty
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.ParameterProperty">
+            <summary>
+            ParameterProperty
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.ChenckingFuncBeforeOpenningProperty">
+            <summary>
+            ChenckingFuncBeforeOpenning
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.WindowTypeProperty">
+            <summary>
+            WindowTypeProperty
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.CommandAfterClose">
+            <summary>
+            Get or set the command to execute when the target window is closed
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.CommandBeforeOpen">
+            <summary>
+            Get or set the command to execute before the target window opens
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.CommandBeforeOpenProperty">
+            <summary>
+            CommandBeforeOpenProperty
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.IsModal">
+            <summary>
+            Specify whether the windows is modal or not
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.MethodAfterClose">
+            <summary>
+            The name of the method that will be executed after the window closed
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.MethodOfTargetObject">
+            <summary>
+            The object that possesses the method MethodAfterClose, commonly it is a ViewModel
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.Parameter">
+            <summary>
+            The parameter need to pass to the new window
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.ChenckingFuncBeforeOpenning">
+            <summary>
+            Get or set a function that return a boolean value indicating whether the target window can be openned or not
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.WindowType">
+            <summary>
+            The type of the window to open
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.OpenWindowAction.Invoke(System.Object)">
+            <summary>
+            Overrides Invoke method
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ScrollingTrigger">
+            <summary>
+            A trigger that fires when scrolling to a specific element in a ScrollViewer.
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ScrollingTrigger.TargetElementProperty">
+            <summary>
+            TargetElementProperty
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ScrollingTrigger.TargetElement">
+            <summary>
+            The target element to scroll to
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ScrollingTrigger.OnAttached">
+            <summary>
+            OnAttached
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ScrollingTrigger.OnDetaching">
+            <summary>
+            OnDetaching
+            </summary>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ScrollToTargetAction">
+            <summary>
+            An action that makes the specific ScrollViewer scrolls to the target element vertically.
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ScrollToTargetAction.ScrollViewerProperty">
+            <summary>
+            ScrollViewerProperty
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ScrollToTargetAction.TargetElementProperty">
+            <summary>
+            TargetElementProperty
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ScrollToTargetAction.ScrollViewer">
+            <summary>
+            The target ScrollViewer
+            </summary>
+        </member>
+        <member name="P:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ScrollToTargetAction.TargetElement">
+            <summary>
+            The target element
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Behaviors.ScrollToTargetAction.Invoke(System.Object)">
+            <summary>
+            Overrides Invoke method
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Extensions.DependencyObjectExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Windows.DependencyObject"/>.
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Extensions.DependencyObjectExtensions.GetChild``1(System.Windows.DependencyObject,System.Func{``0,System.Boolean})">
+            <summary>
+            Get the first elment with the specific type and condition under the current element in visual tree.
+            </summary>
+            <typeparam name="T"/><peparam/>
+            <param name="p_element"></param>
+            <param name="p_func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Extensions.DependencyObjectExtensions.GetChildren``1(System.Windows.DependencyObject,System.Func{``0,System.Boolean})">
+            <summary>
+            Get all the sub item with the specific type and condition
+            </summary>
+            <typeparam name="T"/><peparam/>
+            <param name="p_element"></param>
+            <param name="p_func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Extensions.DependencyObjectExtensions.GetParent``1(System.Windows.DependencyObject)">
+            <summary>
+            Get the parent element matched the given type on the visual tree
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Extensions.DependencyObjectExtensions.GetParent``1(System.Windows.DependencyObject,System.Func{``0,System.Boolean})">
+            <summary>
+            Get the parent element matched the given type on the visual tree by the specific condition
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="element"></param>
+            <param name="p_func"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper">
+            <summary>
+            WindowHelper, provides attached properties to do some operations on a window including open, maximize, minimize, etc.
+            </summary>
+            <remarks>Part of the code from here: https://coderelief.net/2010/04/19/wpf-window-disable-minimize-and-maximize-buttons-through-attached-properties-from-xaml/ </remarks>
+            <summary>
+            WindowHelper, provides attached properties to do some operations on a window including open, maximize, minimize, etc.
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.CanMaximize">
+            <summary>
+            CanMaximize attached property
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.GetCanMaximize(System.Windows.DependencyObject)">
+            <summary>
+            Get the value indicated whether the attached Window can be maximized
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.SetCanMaximize(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Set the value indicated whether the attached Window can be maximized
+            </summary>
+            <param name="d"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.CanMinimize">
+            <summary>
+            CanMinimize attached property
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.GetCanMinimize(System.Windows.DependencyObject)">
+            <summary>
+            Get the value indicated whether the attached Window can be minimized
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.SetCanMinimize(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Set the value indicated whether the attached Window can be minimized
+            </summary>
+            <param name="d"></param>
+            <param name="value"></param>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.CommandAfterCloseProperty">
+            <summary>
+            CommandAfterClose attached property
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.IsModalProperty">
+            <summary>
+            IsModal attached property
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.OpenWindowTypeProperty">
+            <summary>
+            OpenWindowType attached property
+            </summary>
+        </member>
+        <member name="F:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.ParameterProperty">
+            <summary>
+            Parameter attached property
+            </summary>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.GetCommandAfterClose(System.Windows.DependencyObject)">
+            <summary>
+            Get the <see cref="T:System.Windows.Input.ICommand"/> to be executed after the window closed
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.GetIsModal(System.Windows.DependencyObject)">
+            <summary>
+            Get the value that indicates whether the window is modal or not
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.GetOpenWindowType(System.Windows.DependencyObject)">
+            <summary>
+            Get the type of the window to open
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.GetParameter(System.Windows.DependencyObject)">
+            <summary>
+            Set the parameter to be passed to the ViewModel of the new window. Notice, that view model need inherits <see cref="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseData`1"/>
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.SetCommandAfterClose(System.Windows.DependencyObject,System.Windows.Input.ICommand)">
+            <summary>
+            Set the <see cref="T:System.Windows.Input.ICommand"/> to be executed after the window closed
+            </summary>
+            <param name="obj"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.SetIsModal(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Set the value that indicates whether the window is modal or not
+            </summary>
+            <param name="obj"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.SetOpenWindowType(System.Windows.DependencyObject,System.Type)">
+            <summary>
+            Set the type of the window to open
+            </summary>
+            <param name="obj"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Helpers.WindowHelper.SetParameter(System.Windows.DependencyObject,System.Object)">
+            <summary>
+            Get the parameter to be passed to the ViewModel of the new window. Notice, that view model need inherits <see cref="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.ViewModelBaseData`1"/>
+            </summary>
+            <param name="obj"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.AppWindow.GetCurrentActivatedWindow">
+            <summary>
+            Get the activated Window of the application.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.AppWindow.TryGetReturnValue(System.Windows.Window)">
+            <summary>
+            Get the value of the ReturnValue property from the specified window's data context, see <see cref="T:PraiseHim.Rejoice.WpfWindowToolkit.Base.IWindowReturnValue"/> for more info.
+            </summary>
+            <param name="window"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.WindowController">
+            <summary>
+            WindowController
+            </summary>
+            <remarks>Code from here:https://coderelief.net/2010/04/19/wpf-window-disable-minimize-and-maximize-buttons-through-attached-properties-from-xaml/ </remarks>
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.WindowController.DisableMaximize(System.Windows.Window)">
+             <summary>
+             Disables the maximize functionality of a WPF window.
+             </summary>
+            The WPF window to be modified.
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.WindowController.DisableMinimize(System.Windows.Window)">
+             <summary>
+             Disables the minimize functionality of a WPF window.
+             </summary>
+            The WPF window to be modified.
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.WindowController.EnableMaximize(System.Windows.Window)">
+             <summary>
+             Enables the maximize functionality of a WPF window.
+             </summary>
+            The WPF window to be modified.
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.WindowController.EnableMinimize(System.Windows.Window)">
+             <summary>
+             Enables the minimize functionality of a WPF window.
+             </summary>
+            The WPF window to be modified.
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.WindowController.ToggleMaximize(System.Windows.Window)">
+             <summary>
+             Toggles the enabled state of a WPF window's maximize functionality.
+             </summary>
+            The WPF window to be modified.
+        </member>
+        <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.WindowController.ToggleMinimize(System.Windows.Window)">
+             <summary>
+             Toggles the enabled state of a WPF window's minimize functionality.
+             </summary>
+            The WPF window to be modified.
+        </member>
+    </members>
+</doc>

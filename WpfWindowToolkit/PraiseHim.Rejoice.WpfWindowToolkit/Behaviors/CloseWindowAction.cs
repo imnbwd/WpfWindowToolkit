@@ -1,12 +1,12 @@
-﻿using PraiseHim.Rejoice.WpfWindowToolkit.Extensions;
+﻿using Microsoft.Xaml.Behaviors;
+using PraiseHim.Rejoice.WpfWindowToolkit.Extensions;
 using System;
 using System.Windows;
-using System.Windows.Interactivity;
 
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
 {
     /// <summary>
-    /// An action to close a Window
+    /// An action to close a Window.
     /// </summary>
     public class CloseWindowAction : TriggerAction<FrameworkElement>
     {

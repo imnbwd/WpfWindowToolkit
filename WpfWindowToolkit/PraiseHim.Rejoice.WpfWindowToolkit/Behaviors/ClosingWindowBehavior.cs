@@ -5,20 +5,21 @@ using System.Windows;
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
 {
     /// <summary>
-    /// A behavior for <see cref="Window"/> that can handle the closing event
+    /// A behavior for <see cref="Window"/> that can handle the closing event.
     /// </summary>
-    public class CloseWindowBehavior : Behavior<Window>
+    [TypeConstraint(typeof(Window))]
+    public class ClosingWindowBehavior : Behavior<Window>
     {
         /// <summary>
         /// ClosingCheckFunc dp
         /// </summary>
         public static readonly DependencyProperty ClosingCheckFuncProperty =
-            DependencyProperty.Register("ClosingCheckFunc", typeof(Func<bool>), typeof(CloseWindowBehavior), new PropertyMetadata(null));
+            DependencyProperty.Register("ClosingCheckFunc", typeof(Func<bool>), typeof(ClosingWindowBehavior), new PropertyMetadata(null));
 
         /// <summary>
-        /// Get or set a function that returns a boolean value indicating whether the <see cref="Window"/> can be closed or not
+        /// Get or set a function that returns a boolean value indicating whether the <see cref="Window"/> can be closed or not.
         /// </summary>
-        /// <remarks>If the result of function is true, the window can be closed, otherwise, cannot</remarks>
+        /// <remarks>If the result of function is true, the window can be closed, otherwise, cannot.</remarks>
         public Func<bool> ClosingCheckFunc
         {
             get { return (Func<bool>)GetValue(ClosingCheckFuncProperty); }
