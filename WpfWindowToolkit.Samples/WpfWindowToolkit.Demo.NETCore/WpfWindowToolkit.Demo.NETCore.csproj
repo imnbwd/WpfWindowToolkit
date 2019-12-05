@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit.csproj" />
+    <ProjectReference Include="..\..\WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit.csproj" />
   </ItemGroup>
 
 </Project>

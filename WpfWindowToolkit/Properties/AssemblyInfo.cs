@@ -12,5 +12,7 @@ using System.Windows.Markup;
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyVersion("3.0.0.0")]
 [assembly: AssemblyFileVersion("3.0.0.0")]
+[assembly:XmlnsPrefix("http://wpfwindowtoolkit.org/behaviors", "behaviors")]
+[assembly: XmlnsPrefix("http://wpfwindowtoolkit.org/helpers", "helpers")]
 [assembly: XmlnsDefinition(@"http://wpfwindowtoolkit.org/behaviors", "PraiseHim.Rejoice.WpfWindowToolkit.Behaviors")]
 [assembly: XmlnsDefinition(@"http://wpfwindowtoolkit.org/helpers", "PraiseHim.Rejoice.WpfWindowToolkit.Helpers")]

@@ -11,6 +11,7 @@
     Title="MainWindow"
     Width="600"
     Height="500"
+    helpers:WindowHelper.CanClose="False"
     DataContext="{Binding MainViewModel, Source={StaticResource Locator}}"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">

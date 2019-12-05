@@ -148,7 +148,63 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
 
         #endregion CanMinimize
 
-        #region ControlAction        
+        #region CanClose
+
+        // Using a DependencyProperty as the backing store for CanClose.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CanCloseProperty =
+            DependencyProperty.RegisterAttached("CanClose", typeof(bool), typeof(WindowHelper), new PropertyMetadata(true, OnCanCloseChanged));
+
+        public static bool GetCanClose(DependencyObject obj)
+        {
+            return (bool)obj.GetValue(CanCloseProperty);
+        }
+
+        public static void SetCanClose(DependencyObject obj, bool value)
+        {
+            obj.SetValue(CanCloseProperty, value);
+        }
+
+        private static void OnCanCloseChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            Window window = d as Window;
+
+            if (window == null)
+            {
+                window = d.GetParent<Window>();
+            }
+
+            if (window != null)
+            {
+                RoutedEventHandler loadedHandler = null;
+                loadedHandler = delegate
+                {
+                    if ((bool)e.NewValue)
+                    {
+                        WindowController.EnableClose(window);
+                    }
+                    else
+                    {
+                        WindowController.DisableClose(window);
+                    }
+                    window.Loaded -= loadedHandler;
+                };
+
+                if (!window.IsLoaded)
+                {
+                    window.Loaded -= loadedHandler;
+                    window.Loaded += loadedHandler;
+                }
+                else
+                {
+                    loadedHandler(null, null);
+                }
+            }
+        }
+
+        #endregion CanClose
+
+        #region ControlAction
+
         public static readonly DependencyProperty ControlActionProperty =
             DependencyProperty.RegisterAttached("ControlAction", typeof(WindowControlAction), typeof(WindowHelper), new PropertyMetadata(WindowControlAction.None, OnControlActionChanged));
 
@@ -215,6 +271,7 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
                     break;
             }
         }
-        #endregion
+
+        #endregion ControlAction
     }
 }

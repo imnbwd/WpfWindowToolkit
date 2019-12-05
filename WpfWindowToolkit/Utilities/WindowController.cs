@@ -14,6 +14,17 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Utilities
         private const Int32 GWL_STYLE = -16;
         private const Int32 WS_MAXIMIZEBOX = 0x00010000;
         private const Int32 WS_MINIMIZEBOX = 0x00020000;
+        private const Int32 WS_SYSMENU = 0x80000;
+
+        public static void DisableClose(Window window)
+        {
+            lock (window)
+            {
+                IntPtr hWnd = new WindowInteropHelper(window).Handle;
+                Int32 windowStyle = GetWindowLongPtr(hWnd, GWL_STYLE);
+                SetWindowLongPtr(hWnd, GWL_STYLE, windowStyle & ~WS_SYSMENU);
+            }
+        }
 
         /// <summary>
         /// Disables the maximize functionality of a WPF window.
@@ -40,6 +51,16 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Utilities
                 IntPtr hWnd = new WindowInteropHelper(window).Handle;
                 Int32 windowStyle = GetWindowLongPtr(hWnd, GWL_STYLE);
                 SetWindowLongPtr(hWnd, GWL_STYLE, windowStyle & ~WS_MINIMIZEBOX);
+            }
+        }
+
+        public static void EnableClose(Window window)
+        {
+            lock (window)
+            {
+                IntPtr hWnd = new WindowInteropHelper(window).Handle;
+                Int32 windowStyle = GetWindowLongPtr(hWnd, GWL_STYLE);
+                SetWindowLongPtr(hWnd, GWL_STYLE, windowStyle | WS_SYSMENU);
             }
         }
 
