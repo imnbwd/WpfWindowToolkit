@@ -16,8 +16,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WpfWindowToolkit", "WpfWind
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfWindowToolkit.Demo.NET45", "WpfWindowToolkit.Samples\WpfWindowToolkit.Demo.NET45\WpfWindowToolkit.Demo.NET45.csproj", "{B55F776C-DAB9-4A3F-9D1D-E6EAA9D448A0}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "WpfWindowToolkit.Demo.Shared", "WpfWindowToolkit.Samples\WpfWindowToolkit.Demo.Shared\WpfWindowToolkit.Demo.Shared.shproj", "{076483A6-78A9-4175-9E7C-A31A1C0AEF2E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{E177AF1D-AC3C-4696-8F0B-AC811ACC81A5}"
 	ProjectSection(SolutionItems) = preProject
 		Images\Screenshot\Demo.png = Images\Screenshot\Demo.png
@@ -29,15 +27,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{B31876
 		Images\Logo.png = Images\Logo.png
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfWindowToolkit.Demo.NETCore", "WpfWindowToolkit.Samples\WpfWindowToolkit.Demo.NETCore\WpfWindowToolkit.Demo.NETCore.csproj", "{946B86C1-6ECE-4C94-B101-3F059E95B5D1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PraiseHim.Rejoice.WpfWindowToolkit", "WpfWindowToolkit\PraiseHim.Rejoice.WpfWindowToolkit.csproj", "{FEE0934E-467E-4326-A9CF-A2961CA63BA1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfWindowToolkit.Demo.NETCore", "WpfWindowToolkit.Samples\WpfWindowToolkit.Demo.NET45\WpfWindowToolkit.Demo.NETCore.csproj", "{B07615EF-B18A-4BD5-91B0-CA380012804E}"
+EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		WpfWindowToolkit.Samples\WpfWindowToolkit.Demo.Shared\WpfWindowToolkit.Demo.Shared.projitems*{076483a6-78a9-4175-9e7c-a31a1c0aef2e}*SharedItemsImports = 13
-		WpfWindowToolkit.Samples\WpfWindowToolkit.Demo.Shared\WpfWindowToolkit.Demo.Shared.projitems*{b55f776c-dab9-4a3f-9d1d-e6eaa9d448a0}*SharedItemsImports = 4
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -47,25 +41,24 @@ Global
 		{B55F776C-DAB9-4A3F-9D1D-E6EAA9D448A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B55F776C-DAB9-4A3F-9D1D-E6EAA9D448A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B55F776C-DAB9-4A3F-9D1D-E6EAA9D448A0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{946B86C1-6ECE-4C94-B101-3F059E95B5D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{946B86C1-6ECE-4C94-B101-3F059E95B5D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{946B86C1-6ECE-4C94-B101-3F059E95B5D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{946B86C1-6ECE-4C94-B101-3F059E95B5D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FEE0934E-467E-4326-A9CF-A2961CA63BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FEE0934E-467E-4326-A9CF-A2961CA63BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEE0934E-467E-4326-A9CF-A2961CA63BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEE0934E-467E-4326-A9CF-A2961CA63BA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B07615EF-B18A-4BD5-91B0-CA380012804E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B07615EF-B18A-4BD5-91B0-CA380012804E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B07615EF-B18A-4BD5-91B0-CA380012804E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B07615EF-B18A-4BD5-91B0-CA380012804E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B55F776C-DAB9-4A3F-9D1D-E6EAA9D448A0} = {1AFB5FBC-3F29-4993-BD99-82F0446D25A3}
-		{076483A6-78A9-4175-9E7C-A31A1C0AEF2E} = {1AFB5FBC-3F29-4993-BD99-82F0446D25A3}
 		{E177AF1D-AC3C-4696-8F0B-AC811ACC81A5} = {B3187632-7109-4D71-9AAD-F8F138DD9ADD}
 		{B3187632-7109-4D71-9AAD-F8F138DD9ADD} = {A9C450B3-7B99-4285-B502-A4F4E471F9EF}
-		{946B86C1-6ECE-4C94-B101-3F059E95B5D1} = {1AFB5FBC-3F29-4993-BD99-82F0446D25A3}
 		{FEE0934E-467E-4326-A9CF-A2961CA63BA1} = {0123FB51-6466-46C8-BEE0-50CD6A68B95D}
+		{B07615EF-B18A-4BD5-91B0-CA380012804E} = {1AFB5FBC-3F29-4993-BD99-82F0446D25A3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D9D0B295-0E15-43A9-8BA4-097420BD27CB}
