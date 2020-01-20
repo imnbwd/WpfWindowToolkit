@@ -6,7 +6,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/9th0ipvrunqd2tjv?svg=true)](https://ci.appveyor.com/project/imnbwd/wpfwindowtoolkit)
 [![NuGet version](https://badge.fury.io/nu/wpfwindowtoolkit.svg)](https://badge.fury.io/nu/wpfwindowtoolkit)
 
-A wpf windows toolkit for window operations, including some behaviors, useful class for view model. Available on [NuGet](https://www.nuget.org/packages/WpfWindowToolkit/)
+A wpf windows toolkit for window operations, including a few behaviors, useful class for view model. Available on [NuGet](https://www.nuget.org/packages/WpfWindowToolkit/)
 
 ## Features
 
