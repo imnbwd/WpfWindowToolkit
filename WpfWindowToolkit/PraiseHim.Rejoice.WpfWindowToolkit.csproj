@@ -7,12 +7,12 @@
   <PropertyGroup>
     <PackageId>WpfWindowToolkit</PackageId>
     <Authors>imnbwd</Authors>
-    <PackageVersion>3.0.0</PackageVersion>
+    <PackageVersion>3.0.1</PackageVersion>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/imnbwd/WpfWindowToolkit</PackageProjectUrl>
     <RepositoryUrl>https://github.com/imnbwd/WpfWindowToolkit</RepositoryUrl>
     <PackageTags>wpf mvvm window toolkit xaml wpftoolkit window viewmodel behavior</PackageTags>
-    <PackageDescription>A wpf windows toolkit for window opening, including some behaviors, useful class for viewmodel</PackageDescription>
+    <PackageDescription>A wpf windows toolkit for window opening, including a few behaviors, actions and useful classes for viewmodel</PackageDescription>
     <PackageIconUrl>https://github.com/imnbwd/WpfWindowToolkit/blob/master/Images/Logo.png?raw=true</PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <AssemblyName>WpfWindowToolkit</AssemblyName>
