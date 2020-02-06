@@ -771,6 +771,11 @@
             <param name="windowType"></param>
             <returns>如果不存在，返回null，否则返回打开的窗口实例</returns>
         </member>
+        <member name="T:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.ReturnValueInfo">
+            <summary>
+            Indicates whether a window has value returned
+            </summary>
+        </member>
         <member name="M:PraiseHim.Rejoice.WpfWindowToolkit.Utilities.AppWindow.GetCurrentActivatedWindow">
             <summary>
             Get the activated Window of the application.
