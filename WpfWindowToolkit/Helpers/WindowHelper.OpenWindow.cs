@@ -177,11 +177,11 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Helpers
                 window.Closed += (win, args) =>
                 {
                     // try to get the return value from the window's view model
-                    var returnValue = window.TryGetReturnValue();
+                    var returnValueInfo = window.TryGetReturnValue();
                     var command = GetCommandAfterClose(d);
                     if (command != null)
                     {
-                        command.Execute(returnValue);
+                        command.Execute(returnValueInfo.HasValue ? returnValueInfo.Value : null);
                     }
 
                     // set the object to null after it is closed

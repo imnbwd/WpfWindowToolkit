@@ -58,7 +58,7 @@ namespace WpfWindowToolkit.Demo.ViewModels
 
         public void WhenWindowClosed()
         {
-            MessageBox.Show("Window1 closed");
+            MessageBox.Show("Command/method executed after Window1 closed");
         }
 
         #region Show event argument

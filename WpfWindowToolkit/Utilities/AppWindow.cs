@@ -1,9 +1,19 @@
 ﻿using PraiseHim.Rejoice.WpfWindowToolkit.Base;
+using System;
 using System.Linq;
 using System.Windows;
 
 namespace PraiseHim.Rejoice.WpfWindowToolkit.Utilities
 {
+    /// <summary>
+    /// Indicates whether a window has value returned
+    /// </summary>
+    internal class ReturnValueInfo
+    {
+        public bool HasValue { get; set; }
+        public object Value { get; set; }
+    }
+
     internal static class AppWindow
     {
         /// <summary>
@@ -20,14 +30,16 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Utilities
         /// </summary>
         /// <param name="window"></param>
         /// <returns></returns>
-        internal static object TryGetReturnValue(this Window window)
+        internal static ReturnValueInfo TryGetReturnValue(this Window window)
         {
+            bool hasReturnValue = false;
             object returnValue = null;
 
             if (window.DataContext != null)
             {
                 if (window.DataContext is IWindowReturnValue)
                 {
+                    hasReturnValue = true;
                     returnValue = (window.DataContext as IWindowReturnValue).ReturnValue;
                 }
                 else
@@ -39,12 +51,13 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Utilities
 
                     if (geTypeInterface != null)
                     {
+                        hasReturnValue = true;
                         returnValue = geTypeInterface.GetProperty(nameof(IWindowReturnValue.ReturnValue))?.GetValue(window.DataContext, null);
                     }
                 }
             }
 
-            return returnValue;
+            return new ReturnValueInfo { HasValue = hasReturnValue, Value = returnValue };
         }
     }
 }

@@ -169,10 +169,10 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
             var closeEventHanlder = new EventHandler((s, e) =>
                 {
                     // check if need to process the return value
-                    object returnValue = window.TryGetReturnValue();
+                    var returnValueInfo = window.TryGetReturnValue();
 
                     // first execute CommandAfterClose command, then invoke MethodAfterClose method (if they are set)
-                    CommandAfterClose?.Execute(returnValue);
+                    CommandAfterClose?.Execute(returnValueInfo.HasValue ? returnValueInfo.Value : null);
 
                     if (!string.IsNullOrWhiteSpace(MethodAfterClose))
                     {
@@ -185,13 +185,15 @@ namespace PraiseHim.Rejoice.WpfWindowToolkit.Behaviors
                             if (dataContext != null)
                             {
                                 method = dataContext.GetType().GetMethod(MethodAfterClose, BindingFlags.Public | BindingFlags.Instance);
-                                method?.Invoke(dataContext, returnValue != null ? new object[] { returnValue } : null);
+                                var methodPara = returnValueInfo.HasValue ? new object[] { returnValueInfo.Value } : null;
+                                method?.Invoke(dataContext, methodPara);
                             }
                         }
                         else
                         {
                             method = MethodOfTargetObject?.GetType().GetMethod(MethodAfterClose, BindingFlags.Public | BindingFlags.Instance);
-                            method?.Invoke(MethodOfTargetObject, returnValue != null ? new object[] { returnValue } : null);
+                            var methodPara = returnValueInfo.HasValue ? new object[] { returnValueInfo.Value } : null;
+                            method?.Invoke(MethodOfTargetObject, methodPara);
                         }
                     }
                 });
