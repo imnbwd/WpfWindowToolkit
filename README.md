@@ -9,7 +9,7 @@
 A wpf windows toolkit for window operations, including a few behaviors, useful class for view model. Available on [NuGet](https://www.nuget.org/packages/WpfWindowToolkit/)
 
 ## Features
-
+* Support both .NET Core 3.0+ and .NET Framework 4.5+
 * Handle Window opening, closing using behaviors
 * Pass parameters and return value between windows 
 * Fully MVVM supported
