@@ -1,4 +1,6 @@
 # Change log
+## 3.0.1
+- [x] Bug fix and minor improvements
 ## 3.0.0
 - [x] Support .NET Core 3.0
 - [x] Replace Blend Behaviors libraries with XAML Behaviors
