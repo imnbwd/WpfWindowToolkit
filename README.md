@@ -4,7 +4,7 @@
 
 [![Build Status](https://imnbwd.visualstudio.com/WpfWindowToolkit/_apis/build/status/imnbwd.WpfWindowToolkit?branchName=master)](https://imnbwd.visualstudio.com/WpfWindowToolkit/_build/latest?definitionId=6&branchName=master) 
 [![NuGet](https://img.shields.io/nuget/v/wpfwindowtoolkit.svg)](https://www.nuget.org/packages/wpfwindowtoolkit) 
-[![NuGet Download](https://img.shields.io/nuget/dt/wpfwindowtoolkit.svg)](https://img.shields.io/nuget/dt/wpfwindowtoolkit.svg) 
+[![NuGet Download](https://img.shields.io/nuget/dt/wpfwindowtoolkit.svg)](https://www.nuget.org/packages/wpfwindowtoolkit) 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
 [![Join the chat at https://gitter.im/imnbwd/WpfWindowToolkit](https://badges.gitter.im/imnbwd/WpfWindowToolkit.svg)](https://gitter.im/imnbwd/WpfWindowToolkit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
