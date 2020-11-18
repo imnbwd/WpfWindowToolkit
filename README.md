@@ -16,8 +16,17 @@ A wpf windows toolkit for window operations, including a few behaviors, useful c
 * Fully MVVM supported
 * Other utility behaviors
 ## Installation
+
+#### Package Manager
+
 ```PowerShell
 Install-Package WpfWindowToolkit
+```
+
+#### .NET CLI
+
+```
+dotnet add package WpfWindowToolkit
 ```
 
 ## Namespace
